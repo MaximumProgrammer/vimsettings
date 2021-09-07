@@ -22,12 +22,13 @@ Plugin 'nelstrom/vim-markdown-preview'
 "python sytax checker
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
-Plugin 'vim-scripts/indentpython.vim'
+"" Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'psf/black'
 
 "auto-completion stuff
 "Plugin 'python-mode/python-mode'
-Plugin 'klen/python-mode', { 'for': ['python'] }
+"" Plugin 'klen/python-mode', { 'for': ['python'] }
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'klen/rope-vim'
 "Plugin 'davidhalter/jedi-vim'
@@ -44,8 +45,8 @@ Plugin 'google/vim-codefmt'
 " `:help :Glaive` for usage.
 Plugin 'google/vim-glaive'
 " Python Formater 
-Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'valloric/python-indent'
+"" Plugin 'Vimjas/vim-python-pep8-indent'
+"" Plugin 'valloric/python-indent'
 
 "Colors!!!
 Plugin 'altercation/vim-colors-solarized'
@@ -99,7 +100,7 @@ set nu
 "it would be nice to set tag files by the active virtualenv here
 ":set tags=~/mytags "tags for ctags and taglist
 "omnicomplete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"" autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
@@ -132,14 +133,14 @@ let python_highlight_all=1
 syntax on
 
 " Keep indentation level from previous line:
-autocmd FileType python set autoindent
+"" autocmd FileType python set autoindent
 
 " make backspaces more powerfull
 set backspace=indent,eol,start
 
 
 "Folding based on indentation:
-autocmd FileType python set foldmethod=indent
+""" autocmd FileType python set foldmethod=indent
 "use space to open folds
 nnoremap <space> za 
 "----------Stop python PEP 8 stuff--------------
@@ -173,8 +174,8 @@ augroup autoformat_settings
   autocmd FileType gn AutoFormatBuffer gn
   autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType python AutoFormatBuffer yapf
-  autocmd FileType python AutoFormatBuffer autopep8
+  """ autocmd FileType python AutoFormatBuffer yapf
+  "" autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
@@ -184,7 +185,9 @@ function! Formatonsave()
   py3f /usr/share/vim/addons/syntax/clang-format-12.py
   " pyf /usr/share/vim/addons/syntax/clang-format-self.py
 endfunction
-autocmd BufWritePre *.h,*.cc,*.cpp,*.py call Formatonsave()
+autocmd BufWritePre *.h,*.cc,*.cpp, call Formatonsave()
+
+autocmd BufWritePre *.py execute ':Black'
 
 " Links 
 " https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
