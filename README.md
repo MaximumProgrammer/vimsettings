@@ -41,21 +41,14 @@ For building vim use thesse settings for example, if you want to use vim with py
 
 ```
 (https://www.xorpd.net/blog/vim_python3_install.html)
+```
 
-./configure \
---enable-perlinterp \
---enable-python3interp \
---enable-rubyinterp \
---enable-cscope \
---enable-gui=auto \
---enable-gtk2-check \
---enable-gnome-check \
---with-features=huge \
---enable-multibyte \
-#--with-x \
-#--with-compiledby="xorpd" \
-#--with-python3-config-dir=/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
-#--prefix=/opt/vim74
+```
+git clone https://github.com/vim/vim.git
+cd vim/src
+./configure --with-features=huge --enable-python3interp --enable-cscope --enable-gui=auto --enable-gtk2-check --with-features=huge
+make
+sudo make install
 ```
 
 Now install it:
