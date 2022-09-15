@@ -6,21 +6,27 @@ You have to install vundle before u want to use vim:
 
 Download from:
 
+```
 https://github.com/VundleVim/Vundle.vim
+´´´
 
+´´´
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+´´´
 
 Now building vim by your own:
+(https://medium.com/@SoftwareEngineeringNotes/building-vim-from-source-4177d9edd3fe=
 
-https://medium.com/@SoftwareEngineeringNotes/building-vim-from-source-4177d9edd3fe
-
+```
 sudo apt-get build-dep vim
 git clone https://github.com/vim/vim.git
 cd vim
+´´´
 
-For building vim use thesse settings for example
+For building vim use thesse settings for example:
 (https://www.xorpd.net/blog/vim_python3_install.html)
 
+´´´
 ./configure \
 --enable-perlinterp \
 --enable-python3interp \
@@ -35,3 +41,4 @@ For building vim use thesse settings for example
 #--with-compiledby="xorpd" \
 #--with-python3-config-dir=/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
 #--prefix=/opt/vim74
+´´´
