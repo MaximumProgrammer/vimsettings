@@ -6,9 +6,7 @@ You have to install vundle before u want to use vim:
 
 Download from:
 
-```
 https://github.com/VundleVim/Vundle.vim
-´´´
 
 ´´´
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
