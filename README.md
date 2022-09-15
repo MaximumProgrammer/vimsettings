@@ -20,6 +20,7 @@ git clone https://github.com/vim/vim.git
 cd vim
 
 For building vim use thesse settings for example
+(https://www.xorpd.net/blog/vim_python3_install.html)
 
 ./configure \
 --enable-perlinterp \
@@ -35,7 +36,4 @@ For building vim use thesse settings for example
 #--with-compiledby="xorpd" \
 #--with-python3-config-dir=/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
 #--prefix=/opt/vim74
-
-https://www.xorpd.net/blog/vim_python3_install.html
-
 
