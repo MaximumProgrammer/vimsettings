@@ -47,8 +47,6 @@ For building vim use thesse settings for example, if you want to use vim with py
 git clone https://github.com/vim/vim.git
 cd vim/src
 ./configure --with-features=huge --enable-python3interp --enable-cscope --enable-gui=auto --enable-gtk2-check --with-features=huge
-make
-sudo make install
 ```
 
 Now install it:
