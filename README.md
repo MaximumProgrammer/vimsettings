@@ -2,16 +2,15 @@
 
 This are mainly my vim settings which are used for programming on linux.
 
-You have to install vundle before:
+You have to install vundle before u want to use vim:
+
+Download from:
 
 https://github.com/VundleVim/Vundle.vim
 
-, to use plugins in vim.
-
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-
-Building vim by your own:
+Now building vim by your own:
 
 https://medium.com/@SoftwareEngineeringNotes/building-vim-from-source-4177d9edd3fe
 
@@ -36,4 +35,3 @@ For building vim use thesse settings for example
 #--with-compiledby="xorpd" \
 #--with-python3-config-dir=/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
 #--prefix=/opt/vim74
-
