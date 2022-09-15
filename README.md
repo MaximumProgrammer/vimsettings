@@ -51,3 +51,10 @@ For building vim use thesse settings for example:
 #--with-python3-config-dir=/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
 #--prefix=/opt/vim74
 ```
+
+Now install it
+
+```
+make build 
+make install
+```
