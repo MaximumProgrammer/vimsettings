@@ -13,7 +13,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 Now building vim by your own:
-(https://medium.com/@SoftwareEngineeringNotes/building-vim-from-source-4177d9edd3fe=
+```
+https://medium.com/@SoftwareEngineeringNotes/building-vim-from-source-4177d9edd3fe=
+```
 
 sudo apt-get build-dep vim
 git clone https://github.com/vim/vim.git
