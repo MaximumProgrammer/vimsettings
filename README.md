@@ -52,6 +52,6 @@ cd vim/src
 Now install it:
 
 ```
-make build 
+make -j8 
 make install
 ```
