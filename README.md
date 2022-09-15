@@ -49,7 +49,7 @@ cd vim/src
 ./configure --with-features=huge --enable-python3interp --enable-cscope --enable-gui=auto --enable-gtk2-check --with-features=huge
 ```
 
-Now install it:
+Now build and install it:
 
 ```
 make -j8 
