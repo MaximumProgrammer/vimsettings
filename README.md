@@ -1,10 +1,10 @@
 # vimsettings
 
-This are mainly my vim settings which are used for programming on linux.
+These are mainly my vim settings which are used for programming on linux with c++ and linux.
 
-You have to install vundle before u want to use vim:
+You have to install vundle before u want to use vim with plugins:
 
-Download vundle from github:
+Download vundle from github for using plugins:
 
 ```
 https://github.com/VundleVim/Vundle.vim
