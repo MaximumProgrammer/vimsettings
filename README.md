@@ -55,3 +55,6 @@ Now build and install it:
 make -j8 
 make install
 ```
+
+Also read this guide:
+https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
