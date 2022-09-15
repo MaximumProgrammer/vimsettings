@@ -58,7 +58,7 @@ For building vim use thesse settings for example, if you want to use vim with py
 #--prefix=/opt/vim74
 ```
 
-Now install it
+Now install it:
 
 ```
 make build 
