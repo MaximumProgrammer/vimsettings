@@ -27,11 +27,17 @@ Install missing files and clone git from github:
 ```
 sudo apt-get build-dep vim
 git clone https://github.com/vim/vim.git
+
+```
+
+Go in the according directory:
+
+```
 cd vim
 
 ```
 
-For building vim use thesse settings for example:
+For building vim use thesse settings for example, if you want to use vim with python:
 
 ```
 (https://www.xorpd.net/blog/vim_python3_install.html)
