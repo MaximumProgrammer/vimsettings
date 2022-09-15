@@ -19,6 +19,8 @@ sudo apt-get build-dep vim
 git clone https://github.com/vim/vim.git
 cd vim
 
+For building vim use thesse settings for example
+
 ./configure \
 --enable-perlinterp \
 --enable-python3interp \
