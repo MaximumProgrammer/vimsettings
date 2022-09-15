@@ -4,9 +4,11 @@ This are mainly my vim settings which are used for programming on linux.
 
 You have to install vundle before u want to use vim:
 
-Download from:
+Download from vundle from:
 
+```
 https://github.com/VundleVim/Vundle.vim
+```
 
 Now clone it:
 
