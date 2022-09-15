@@ -22,6 +22,12 @@ Now building vim by your own:
 https://medium.com/@SoftwareEngineeringNotes/building-vim-from-source-4177d9edd3fe=
 ```
 
+Or also read this guide:
+
+```
+https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
+```
+
 Install missing files and clone git from github:
 
 ```
@@ -56,5 +62,3 @@ make -j8
 make install
 ```
 
-Also read this guide:
-https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
