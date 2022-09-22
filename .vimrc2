@@ -28,7 +28,6 @@ Plugin 'psf/black' "
 
 "Plugin for auto-completion stuff"
 Plugin 'python-mode/python-mode'
-Plugin 'klen/rope-vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'jayli/vim-easycomplete'
@@ -76,25 +75,6 @@ syntax on
 
 colorscheme default
 
-""""""""""" Start Powerline Settings """"""""""""""""
-
-"python with virtualenv support
-"py3<< EOF
-"import os.path
-"import sys
-"import vim
-"if 'VIRTUA_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  sys.path.insert(0, project_base_dir)
-"  activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
-"  execfile(activate_this, dict(__file__=activate_this))
-"EOF
-
-"it would be nice to set tag files by the active virtualenv here
-":set tags=~/mytags "tags for ctags and taglist
-"omnicomplete
-"" autocmd FileType python set omnifunc=pythoncomplete#Complete
-
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
 au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
@@ -126,7 +106,7 @@ let python_highlight_all=1
 syntax on
 
 " Keep indentation level from previous line:
-"" autocmd FileType python set autoindent
+autocmd FileType python set autoindent
 
 " make backspaces more powerfull
 set backspace=indent,eol,start
@@ -188,7 +168,7 @@ let g:ale_linters = {
 
 let g:ale_fix_on_save = 0
 
-let g:ale_completion_enabled = 1
+"let g:ale_completion_enabled = 1"
 
 let g:ale_set_highlights = 1
 
