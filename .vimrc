@@ -73,6 +73,8 @@ Plugin 'airblade/vim-gitgutter'
 "Plugin for using git interface"
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'drewtempelmeyer/palenight.vim'
+
 call vundle#end()
 
 """"""""""" Default Values  """"""""""""""""
@@ -193,3 +195,8 @@ let b:ale_fixers = ['autopep8', 'yapf']
 let b:ale_warn_about_trailing_whitespace = 0
 
 let g:ale_list_window_size = 5
+
+set background=dark
+colorscheme nord
+
+let g:airline_theme = "nord"
