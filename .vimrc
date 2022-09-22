@@ -29,7 +29,6 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'jayli/vim-easycomplete'
 Plugin 'SirVer/ultisnips'
-Plugin 'LunarWatcher/auto-pairs'
 
 "Plugin for linting C++"
 Plugin 'w0rp/ale'
@@ -62,6 +61,7 @@ Plugin 'rosenfeld/conque-term'              " Consoles as buffers
 Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'flazz/vim-colorschemes'             " Colorschemes
 Plugin 'arcticicestudio/nord-vim'           " Nord vim 
+Plugin 'ericcurtin/CurtineIncSw.vim'
 
 "Plugin for searching in files"
 Plugin 'junegunn/fzf.vim'
@@ -196,7 +196,13 @@ let b:ale_warn_about_trailing_whitespace = 0
 
 let g:ale_list_window_size = 5
 
-set background=dark
+"set background=dark
 colorscheme nord
 
 let g:airline_theme = "nord"
+
+map <F5> :call CurtineIncSw()<CR>
+
+hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
+
+au filetype vimwiki silent! iunmap <buffer> <Tab>
