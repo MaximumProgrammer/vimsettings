@@ -6,9 +6,6 @@ call vundle#begin()
 "Plugin for installing plugins"
 Plugin 'VundleVim/Vundle.vim'
 
-"Plugin for using git interface"
-Plugin 'tpope/vim-fugitive'
-
 "Plugin for filesystems"
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -64,10 +61,17 @@ Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
 Plugin 'rosenfeld/conque-term'              " Consoles as buffers
 Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'flazz/vim-colorschemes'             " Colorschemes
+Plugin 'arcticicestudio/nord-vim'           " Nord vim 
 
 "Plugin for searching in files"
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+"Plugin for git"
+Plugin 'airblade/vim-gitgutter'
+
+"Plugin for using git interface"
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
@@ -77,7 +81,8 @@ set number
 
 syntax on
 
-colorscheme default
+"colorscheme default
+colorscheme nord
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
