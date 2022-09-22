@@ -1,58 +1,62 @@
-set nocompatible
-filetype off
+"VIM setting for C/C++ and python"
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"Plugin for installing plugins"
 Plugin 'VundleVim/Vundle.vim'
-"git interface
+
+"Plugin for using git interface"
 Plugin 'tpope/vim-fugitive'
-"filesystem
+
+"Plugin for filesystems"
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim' 
-"""Plugin 'altercation/vim-colors-solarized'""
 
-"html
-"  isnowfy only compatible with python not python3
-" Plugin 'isnowfy/python-vim-instant-markdown'
+"Plugin for html suppor"
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
-"python sytax checker
+
+"Plugin for syntax checking"
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
-"" Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'psf/black'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/syntastic'"
+Plugin 'psf/black' "
 
-"auto-completion stuff
-"Plugin 'python-mode/python-mode'
-"" Plugin 'klen/python-mode', { 'for': ['python'] }
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'klen/rope-vim'
-"Plugin 'davidhalter/jedi-vim'
+"Plugin for auto-completion stuff"
+Plugin 'python-mode/python-mode'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
-""code folding
-Plugin 'tmhedberg/SimpylFold'
+Plugin 'jayli/vim-easycomplete'
+Plugin 'SirVer/ultisnips'
+Plugin 'LunarWatcher/auto-pairs'
 
-"Code formating 
-" Add maktaba and codefmt to the runtimepath.
-" (The latter must be installed before it can be used.)
+"Plugin for linting C++"
+Plugin 'w0rp/ale'
+
+"Plugin for code formattting"
+Plugin 'tmhedberg/SimpylFold'
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
-" Also add Glaive, which is used to configure codefmt's maktaba flags. See
-" `:help :Glaive` for usage.
 Plugin 'google/vim-glaive'
-" Python Formater 
-"" Plugin 'Vimjas/vim-python-pep8-indent'
-"" Plugin 'valloric/python-indent'
 
-"Colors!!!
+"Plugin for python code formattting" 
+Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'valloric/python-indent'
+Plugin 'sheerun/vim-polyglot'
+
+"Plugin for colours"
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 
-"-------------------=== Other ===-------------------------------
+"Plugin for switching C++ Header"
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'derekwyatt/vim-protodef'
+
+"Other vim plugins"
 Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
 Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
@@ -61,46 +65,19 @@ Plugin 'rosenfeld/conque-term'              " Consoles as buffers
 Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'flazz/vim-colorschemes'             " Colorschemes
 
+"Plugin for searching in files"
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 call vundle#end()
 
-filetype plugin indent on    " enables filetype detection
-let g:SimpylFold_docstring_preview = 1
+""""""""""" Default Values  """"""""""""""""
 
-"autocomplete
-let g:ycm_autoclose_preview_window_after_completion=1
+set number
 
-"custom keys
-let mapleader=" "
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"
-call togglebg#map("<F5>")
-"colorscheme zenburn
-"set guifont=Monaco:h14
+syntax on
 
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-
-"I don't like swap files
-set noswapfile
-
-"turn on numbering
-set nu
-
-"python with virtualenv support
-"py3<< EOF
-"import os.path
-"import sys
-"import vim
-"if 'VIRTUA_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  sys.path.insert(0, project_base_dir)
-"  activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
-"  execfile(activate_this, dict(__file__=activate_this))
-"EOF
-
-"it would be nice to set tag files by the active virtualenv here
-":set tags=~/mytags "tags for ctags and taglist
-"omnicomplete
-"" autocmd FileType python set omnifunc=pythoncomplete#Complete
+colorscheme default
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
@@ -133,11 +110,12 @@ let python_highlight_all=1
 syntax on
 
 " Keep indentation level from previous line:
-"" autocmd FileType python set autoindent
+autocmd FileType python set autoindent
 
 " make backspaces more powerfull
 set backspace=indent,eol,start
 
+let g:AutoPairsShortcutToggle = '<C-P>'
 
 "Folding based on indentation:
 """ autocmd FileType python set foldmethod=indent
@@ -166,28 +144,47 @@ if has("gui_running")
     endif
 endif
 
+if has("syntax")
+  syntax on
+endif
+
 augroup autoformat_settings
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
-  autocmd FileType dart AutoFormatBuffer dartfmt
-  autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-  autocmd FileType java AutoFormatBuffer google-java-format
-  """ autocmd FileType python AutoFormatBuffer yapf
-  "" autocmd FileType python AutoFormatBuffer autopep8
-  autocmd FileType rust AutoFormatBuffer rustfmt
-  autocmd FileType vue AutoFormatBuffer prettier
+	autocmd FileType bzl AutoFormatBuffer buildifier
+	autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer git-clang-format
+	autocmd FileType dart AutoFormatBuffer dartfmt
+	autocmd FileType go AutoFormatBuffer gofmt
+	autocmd FileType gn AutoFormatBuffer gn
+	autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+	autocmd FileType java AutoFormatBuffer google-java-format
+	autocmd FileType python AutoFormatBuffer yapf
+	autocmd FileType python AutoFormatBuffer autopep8
+	autocmd FileType rust AutoFormatBuffer rustfmt
+	autocmd FileType vue AutoFormatBuffer prettier
 augroup END
 
-function! Formatonsave()
-  let l:formatdiff = 1
-  py3f /usr/share/vim/addons/syntax/clang-format-12.py
-  " pyf /usr/share/vim/addons/syntax/clang-format-self.py
-endfunction
-autocmd BufWritePre *.h,*.cc,*.cpp, call Formatonsave()
+"Plugin for prediciton"
+let g:pydiction_location = expand('~/.vim/bundle/Pydiction/complete-dict')
 
-autocmd BufWritePre *.py execute ':Black'
+"Setting for ale linters C/C++ and Python"
+let g:ale_linters = {
+      \   'python': ['flake8', 'pylint'],
+      \   'ruby': ['standardrb', 'rubocop'],
+      \   'javascript': ['eslint'],
+      \   'cpp': ['clang'], 'c': ['clang'],
+      \}
 
-" Links 
-" https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
+let g:ale_fix_on_save = 0
+
+"let g:ale_completion_enabled = 1"
+
+let g:ale_set_highlights = 1
+
+let g:airline#extensions#ale#enabled = 1
+
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['autopep8', 'yapf']
+
+" Disable warnings about trailing whitespace for Python files.
+let b:ale_warn_about_trailing_whitespace = 0
+
+let g:ale_list_window_size = 5
