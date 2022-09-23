@@ -196,7 +196,7 @@ let b:ale_warn_about_trailing_whitespace = 0
 
 let g:ale_list_window_size = 5
 
-"set background=dark
+"set background=grey
 colorscheme nord
 
 let g:airline_theme = "nord"
