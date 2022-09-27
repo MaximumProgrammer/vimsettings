@@ -29,6 +29,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'jayli/vim-easycomplete'
 Plugin 'SirVer/ultisnips'
+"Plugin 'rhysd/vim-clang-format'"
 
 "Plugin for linting C++"
 Plugin 'w0rp/ale'
@@ -43,6 +44,8 @@ Plugin 'google/vim-glaive'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'valloric/python-indent'
 Plugin 'sheerun/vim-polyglot'
+"Plugin 'integralist/vim-mypy'
+
 
 "Plugin for colours"
 Plugin 'altercation/vim-colors-solarized'
@@ -62,6 +65,7 @@ Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML
 Plugin 'flazz/vim-colorschemes'             " Colorschemes
 Plugin 'arcticicestudio/nord-vim'           " Nord vim 
 Plugin 'ericcurtin/CurtineIncSw.vim'
+Plugin 'frazrepo/vim-rainbow'
 
 "Plugin for searching in files"
 Plugin 'junegunn/fzf.vim'
@@ -74,6 +78,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'drewtempelmeyer/palenight.vim'
+
+Plugin 'bogado/file-line'
+
+Plugin 'irrationalistic/vim-tasks'
 
 call vundle#end()
 
@@ -196,7 +204,7 @@ let b:ale_warn_about_trailing_whitespace = 0
 
 let g:ale_list_window_size = 5
 
-"set background=grey
+" set background=grey
 colorscheme nord
 
 let g:airline_theme = "nord"
@@ -206,3 +214,12 @@ map <F5> :call CurtineIncSw()<CR>
 hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
 
 au filetype vimwiki silent! iunmap <buffer> <Tab>
+
+let maplocalleader="\<space>"
+let g:TasksMarkerBase = '☐'
+let g:TasksMarkerInProgress = '»'
+let g:TasksMarkerDone = '✔'
+let g:TasksMarkerCancelled = '✘'
+let g:TasksDateFormat = '%Y-%m-%d %H:%M'
+let g:TasksAttributeMarker = '@'
+let g:TasksArchiveSeparator = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿'
