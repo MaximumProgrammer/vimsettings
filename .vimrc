@@ -50,6 +50,7 @@ Plugin 'sheerun/vim-polyglot'
 "Plugin for colours"
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
+Plugin 'rakr/vim-one'
 
 "Plugin for switching C++ Header"
 Plugin 'derekwyatt/vim-fswitch'
@@ -218,9 +219,6 @@ let b:ale_warn_about_trailing_whitespace = 0
 
 let g:ale_list_window_size = 5
 
-" set background=grey
-colorscheme nord
-
 let g:airline_theme = "nord"
 
 map <F5> :call CurtineIncSw()<CR>
@@ -237,3 +235,12 @@ let g:TasksMarkerCancelled = '✘'
 let g:TasksDateFormat = '%Y-%m-%d %H:%M'
 let g:TasksAttributeMarker = '@'
 let g:TasksArchiveSeparator = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿'
+
+" set color schemes"
+
+colorscheme nord
+set background=dark " for the dark version
+"set background=light " for the light version
+let g:airline_theme='nord'
+
+hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
