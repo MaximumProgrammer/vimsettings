@@ -83,6 +83,20 @@ Plugin 'bogado/file-line'
 
 Plugin 'irrationalistic/vim-tasks'
 
+
+"Plugin for refactoring c++ code"
+Plugin 'LucHermitte/lh-vim-lib'
+Plugin 'LucHermitte/lh-tags'
+Plugin 'LucHermitte/lh-dev'
+Plugin 'LucHermitte/lh-style'
+Plugin 'LucHermitte/lh-brackets'
+Plugin 'LucHermitte/vim-refactor'
+
+" For experimental function extraction
+Plugin 'LucHermitte/mu-template'
+Plugin 'tomtom/stakeholders_vim'
+
+
 call vundle#end()
 
 """"""""""" Default Values  """"""""""""""""
