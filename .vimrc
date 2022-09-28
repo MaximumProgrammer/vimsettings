@@ -247,8 +247,9 @@ set background=dark " for the dark version
 hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
 
 " air-line
+"let g:airline_theme='nord'
 let g:airline_theme='wombat'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 2
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
