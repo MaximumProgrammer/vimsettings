@@ -1,3 +1,4 @@
+" Vim Settings for C/C++ and Python"
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
