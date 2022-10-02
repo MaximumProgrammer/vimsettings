@@ -243,10 +243,11 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
 let g:airline#extensions#tabline#enabled = 1
+" adding space
 let g:airline#extensions#tabline#left_sep = "\ue0b0"
 let g:airline#extensions#tabline#left_alt_sep = "\ue0b1"
-let g:airline#extensions#tabline#right_sep = "\ue0b0 "
-let g:airline#extensions#tabline#right_alt_sep = "\ue0b1"
+let g:airline#extensions#tabline#right_sep = "\ue0b1"
+let g:airline#extensions#tabline#right_alt_sep = "\ue0b0"
 
 " airline symbols
 
@@ -381,9 +382,7 @@ function! LinterStatus() abort
 endfunction
 
 let g:ale_fix_on_save = 0
-
 let g:ale_completion_enabled = 1
-
 let g:ale_set_highlights = 1
 
 let g:airline#extensions#ale#enabled = 1
@@ -396,7 +395,9 @@ let b:ale_warn_about_trailing_whitespace = 0
 
 let g:ale_list_window_size = 5
 
-let opts = '-std=c++17 -Wall -Wextra'
+let opts = '-std=c++17 -Wall -Wextra -isystem /usr/include/c++/v1 -I/usr/include/c++/v1 -I/usr/local/include -I/usr/include -I/usr/include/x86_64-linux-gnu'
+let g:ale_c_build_dir = "./build"                                                
+let g:ale_c_parse_makefile = 1      
 let g:ale_cpp_cc_options    = opts
 let g:ale_cpp_gcc_options   = opts
 let g:ale_cpp_clang_options = opts
@@ -406,6 +407,9 @@ set statusline=%{LinterStatus()}
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
 
 "=====================================================
 "" C++ Clang Completion
