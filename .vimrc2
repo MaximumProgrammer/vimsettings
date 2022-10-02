@@ -365,7 +365,7 @@ let g:ale_linters = {
       \   'python': ['flake8', 'pylint'],
       \   'ruby': ['standardrb', 'rubocop'],
       \   'javascript': ['eslint'],
-      \   'cpp': ['clang'], 'c': ['clang'],
+      \   'cpp': ['clang','clangtidy'], 'c': ['clang','clangtidy'],
       \}
 
 function! LinterStatus() abort
@@ -380,6 +380,15 @@ function! LinterStatus() abort
     \   all_errors
     \)
 endfunction
+
+let g:ale_cpp_clangtidy_checks = []
+let g:ale_cpp_clangtidy_executable = 'clang-tidy'
+let g:ale_c_parse_compile_commands=1
+let g:ale_cpp_clangtidy_extra_options = ''
+let g:ale_cpp_clangtidy_options = ''
+let g:ale_set_balloons=1
+let g:ale_linters_explicit=1
+
 
 let g:ale_fix_on_save = 0
 let g:ale_completion_enabled = 1
@@ -408,7 +417,7 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-let g:ale_sign_error = '●'
+let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '.'
 
 "=====================================================
