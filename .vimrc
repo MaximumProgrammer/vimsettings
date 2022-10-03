@@ -1,117 +1,459 @@
-"VIM setting for C/C++ and Python"
-
+" Vim Settings for C/C++ and Python"
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"Plugin for installing plugins"
-Plugin 'VundleVim/Vundle.vim'
+    Plugin 'VundleVim/Vundle.vim'               " let Vundle manage Vundle, required
 
-"Plugin for filesystems"
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim' 
+    "-------------------=== Code/Project navigation ===-------------
+    Plugin 'scrooloose/nerdtree'                " Project and file navigation
+    Plugin 'majutsushi/tagbar'                  " Class/module browser
+    Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
+    Plugin 'jistr/vim-nerdtree-tabs'
+   
+    "-------------------=== Other ===-------------------------------
+    Plugin 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
+    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
+    Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
+    Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
+    Plugin 'rosenfeld/conque-term'              " Consoles as buffers
+    Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
+    Plugin 'flazz/vim-colorschemes'             " Colorschemes
+    Plugin 'ervandew/supertab'
+    Plugin 'drewtempelmeyer/palenight.vim'
+    Plugin 'bogado/file-line'
+    Plugin 'irrationalistic/vim-tasks'
 
-"Plugin for html suppor"
-Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'nelstrom/vim-markdown-preview'
+    "-------------------=== Snippets support ===--------------------
+    Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
+    Plugin 'tomtom/tlib_vim'                    " dependencies #2
+    Plugin 'honza/vim-snippets'                 " snippets repo
 
-"Plugin for syntax checking"
-Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/Pydiction'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'"
-Plugin 'psf/black' "
+    "-------------------=== Languages support ===-------------------
+    Plugin 'tpope/vim-commentary'               " Comment stuff out
+    Plugin 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
+    "Plugin 'Rykka/riv.vim'                      " ReStructuredText plugin
+    "Plugin 'Valloric/YouCompleteMe'            " Autocomplete plugin
+    Plugin 'arcticicestudio/nord-vim'           " Nord vim 
+    Plugin 'ericcurtin/CurtineIncSw.vim'
+    Plugin 'frazrepo/vim-rainbow'
 
-"Plugin for auto-completion stuff"
-Plugin 'python-mode/python-mode'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
-Plugin 'jayli/vim-easycomplete'
-Plugin 'SirVer/ultisnips'
-"Plugin 'rhysd/vim-clang-format'"
+    "-------------------=== HTML support ===-------------------
+    Plugin 'jtratner/vim-flavored-markdown'
+    Plugin 'suan/vim-instant-markdown'
+    Plugin 'nelstrom/vim-markdown-preview'
 
-"Plugin for linting C++"
-Plugin 'w0rp/ale'
+    "-------------------=== Python  ===-----------------------------
+    "Plugin 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
+    Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
+    Plugin 'nvie/vim-flake8'
+    Plugin 'vim-scripts/Pydiction'
+    Plugin 'vim-scripts/indentpython.vim'
+    Plugin 'psf/black'
+    Plugin 'davidhalter/jedi-vim'
+ 
+    "-------------------=== Switching C++ Headers ===-------------------
+    Plugin 'derekwyatt/vim-fswitch'
+    Plugin 'derekwyatt/vim-protodef'
 
-"Plugin for code formattting"
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-glaive'
+    "-------------------=== Searchin for Files ===-------------------
+    Plugin 'junegunn/fzf.vim'
+    Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
-"Plugin for python code formattting" 
-Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'valloric/python-indent'
-Plugin 'sheerun/vim-polyglot'
-"Plugin 'integralist/vim-mypy'
+    "-------------------=== C++ Linter ===-------------------
+    Plugin 'w0rp/ale'
 
+   "-------------------=== C++ Code Completion ===-------------------  
+    Plugin 'rip-rip/clang_complete'
 
-"Plugin for colours"
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/Zenburn'
-Plugin 'rakr/vim-one'
-Plugin 'itchyny/lightline.vim'
+    "-------------------=== Code Formatting ===-------------------
+    Plugin 'tmhedberg/SimpylFold'
+    Plugin 'google/vim-maktaba'
+    Plugin 'google/vim-codefmt'
+    Plugin 'google/vim-glaive'
 
+    "-------------------=== Vim Colors ===-------------------
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'jnurmine/Zenburn'
+    Plugin 'rakr/vim-one'
+    Plugin 'itchyny/lightline.vim'
 
-"Plugin for switching C++ Header"
-Plugin 'derekwyatt/vim-fswitch'
-Plugin 'derekwyatt/vim-protodef'
-
-"Other vim plugins"
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
-Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
-Plugin 'rosenfeld/conque-term'              " Consoles as buffers
-Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
-Plugin 'flazz/vim-colorschemes'             " Colorschemes
-Plugin 'arcticicestudio/nord-vim'           " Nord vim 
-Plugin 'ericcurtin/CurtineIncSw.vim'
-Plugin 'frazrepo/vim-rainbow'
-
-"Plugin for searching in files"
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-"Plugin for git"
-Plugin 'airblade/vim-gitgutter'
-
-"Plugin for using git interface"
-Plugin 'tpope/vim-fugitive'
-
-Plugin 'drewtempelmeyer/palenight.vim'
-
-Plugin 'bogado/file-line'
-
-Plugin 'irrationalistic/vim-tasks'
-
-
-"Plugin for refactoring c++ code"
-Plugin 'LucHermitte/lh-vim-lib'
-Plugin 'LucHermitte/lh-tags'
-Plugin 'LucHermitte/lh-dev'
-Plugin 'LucHermitte/lh-style'
-Plugin 'LucHermitte/lh-brackets'
-Plugin 'LucHermitte/vim-refactor'
-
-" For experimental function extraction
-Plugin 'LucHermitte/mu-template'
-Plugin 'tomtom/stakeholders_vim'
-
+    Plugin 'pacha/vem-dark'
+    
+    "-------------------=== Plugin for Git Integration ===-------------------
+    Plugin 'airblade/vim-gitgutter'
+    Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
-""""""""""" Default Values  """"""""""""""""
+" Add plugins here which you want to add
 
+"""""""""""" START General Settings """"""""""""""""
+
+filetype plugin indent on
+
+syntax enable                               " syntax highlight
+
+set t_Co=256                                " set 256 colors
+colorscheme vem-dark                          " set color scheme
+
+set number                                  " show line numbers
+set ruler
+set ttyfast                                 " terminal acceleration
+
+set tabstop=4                               " 4 whitespaces for tabs visual presentation
+set shiftwidth=4                            " shift lines by 4 spaces
+set smarttab                                " set tabs for a shifttabs logic
+set expandtab                               " expand tabs into spaces
+set autoindent                              " indent when moving to the next line while writing code
+
+set cursorline                              " shows line under the cursor's line
+set showmatch                               " shows matching part of bracket pairs (), [], {}
+
+set enc=utf-8	                            " utf-8 by default
+
+set nobackup 	                            " no backup files
+set nowritebackup                           " only in case you don't want a backup file while editing
+set noswapfile 	                            " no swap files
+
+set backspace=indent,eol,start              " backspace removes all (indents, EOLs, start) What is start?
+
+set scrolloff=10                            " let 10 lines before/after cursor during scroll
+
+set clipboard=unnamed                       " use system clipboard
+
+set exrc                                    " enable usage of additional .vimrc files from working directory
+set secure                                  " prohibit .vimrc files to execute shell, create files, etc...
+
+syntax enable
+set tabstop=4
+set expandtab
 set number
+filetype indent on
+set autoindent
+set nocompatible
+filetype off
 
-syntax on
+"""""""""""" END General Settings """"""""""""""""
 
-"colorscheme default
-colorscheme nord
 
-"------------Start Python PEP 8 stuff----------------
+
+"""""""""""" START Powerline Settings """"""""""""""""
+
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+if has("gui_running")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        set guifont=Source\ Code\ Pro\ for\ Powerline:h15
+        colorscheme nord            " set color scheme
+    endif
+endif
+
+""""""""""" END of PowerLine Settings  """""""""""""""call vundle#end()
+
+"""""""""""" START Auto Formatting Settings """"""""""""""""
+
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  "autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer git clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  "autocmd FileType python AutoFormatBuffer yapf
+  "Alternative:"
+  "autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType rust AutoFormatBuffer rustfmt
+  autocmd FileType vue AutoFormatBuffer prettier
+  autocmd FileType swift AutoFormatBuffer swift-format
+augroup END
+
+
+"""""""""""" END Auto Formatting Settings """"""""""""""""
+
+"=====================================================
+"" Tabs / Buffers settings
+"=====================================================
+tab sball
+set switchbuf=useopen
+set laststatus=2
+nmap <F9> :bprev<CR>
+nmap <F10> :bnext<CR>
+nmap <silent> <leader>q :SyntasticCheck # <CR> :bp <BAR> bd #<CR>
+
+"" Search settings
+"=====================================================
+set incsearch	                            " incremental search
+set hlsearch	                            " highlight search results
+
+"=====================================================
+"" AirLine settings
+"=====================================================
+
+map <F5> :call CurtineIncSw()<CR>
+
+hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
+
+au filetype vimwiki silent! iunmap <buffer> <Tab>
+
+let maplocalleader="\<space>"
+let g:TasksMarkerBase = '☐'
+let g:TasksMarkerInProgress = '»'
+let g:TasksMarkerDone = '✔'
+let g:TasksMarkerCancelled = '✘'
+let g:TasksDateFormat = '%Y-%m-%d %H:%M'
+let g:TasksAttributeMarker = '@'
+let g:TasksArchiveSeparator = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿'
+
+" set color schemes"
+"let background=black " for the dark version
+"set background=light " for the light version
+
+hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
+
+set guifont=Hack:h10:cANSI
+
+" Airline
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline#extensions#tabline#enabled = 1
+
+" adding space
+"let g:airline#extensions#tabline#left_sep = "\ue0b0"
+"let g:airline#extensions#tabline#left_alt_sep = "\ue0b1"
+"let g:airline#extensions#tabline#right_sep = "\ue0b1"
+"let g:airline#extensions#tabline#right_alt_sep = "\ue0b0"
+
+
+" airline symbols
+"https://vi.stackexchange.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin
+" unicode symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" airline symbols
+
+"https://yyiki.org/wiki/Vim/Airline/
+" Switch to your current theme
+let g:airline_theme = 'wombat'
+
+" Always show tabs
+set showtabline=1
+
+" We don't need to see things like -- INSERT -- anymore
+set noshowmode
+
+"=====================================================
+
+"=====================================================
+"" SnipMate settings
+"=====================================================
+let g:snippets_dir='~/.vim/vim-snippets/snippets'
+
+"=====================================================
+"" Riv.vim settings
+"=====================================================
+let g:riv_disable_folding=1
+let g:riv_python_rst_hl=1
+
+"=====================================================
+"" Python settings
+"=====================================================
+
+" omnicomplete
+set completeopt-=preview                    " remove omnicompletion dropdown
+
+" python executables for different plugins
+let g:pymode_python='python'
+let g:syntastic_python_python_exec='python'
+
+" rope
+let g:pymode_rope=0
+let g:pymode_rope_completion=0
+let g:pymode_rope_complete_on_dot=0
+let g:pymode_rope_auto_project=0
+let g:pymode_rope_enable_autoimport=0
+let g:pymode_rope_autoimport_generate=0
+let g:pymode_rope_guess_project=0
+
+" documentation
+let g:pymode_doc=0
+let g:pymode_doc_key='K'
+
+" lints
+let g:pymode_lint=0
+
+autocmd BufWritePost *.py call flake8#Flake8()
+
+" virtualenv
+let g:pymode_virtualenv=1
+
+" breakpoints
+let g:pymode_breakpoint=1
+let g:pymode_breakpoint_key='<leader>b'
+
+" syntax highlight
+let g:pymode_syntax=1
+let g:pymode_syntax_slow_sync=1
+let g:pymode_syntax_all=1
+let g:pymode_syntax_print_as_function=g:pymode_syntax_all
+let g:pymode_syntax_highlight_async_await=g:pymode_syntax_all
+let g:pymode_syntax_highlight_equal_operator=g:pymode_syntax_all
+let g:pymode_syntax_highlight_stars_operator=g:pymode_syntax_all
+let g:pymode_syntax_highlight_self=g:pymode_syntax_all
+let g:pymode_syntax_indent_errors=g:pymode_syntax_all
+let g:pymode_syntax_string_formatting=g:pymode_syntax_all
+let g:pymode_syntax_space_errors=g:pymode_syntax_all
+let g:pymode_syntax_string_format=g:pymode_syntax_all
+let g:pymode_syntax_string_templates=g:pymode_syntax_all
+let g:pymode_syntax_doctests=g:pymode_syntax_all
+let g:pymode_syntax_builtin_objs=g:pymode_syntax_all
+let g:pymode_syntax_builtin_types=g:pymode_syntax_all
+let g:pymode_syntax_highlight_exceptions=g:pymode_syntax_all
+let g:pymode_syntax_docstrings=g:pymode_syntax_all
+
+" code folding
+let g:pymode_folding=0
+
+" pep8 indents
+let g:pymode_indent=1
+
+" code running
+let g:pymode_run=1
+let g:pymode_run_bind='<F6>'
+
+" syntastic
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_aggregate_errors=1
+let g:syntastic_loc_list_height=5
+let g:syntastic_error_symbol='X'
+let g:syntastic_style_error_symbol='X'
+let g:syntastic_warning_symbol='x'
+let g:syntastic_style_warning_symbol='x'
+let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python']
+
+"Plugin for prediciton"
+let g:pydiction_location = expand('~/.vim/bundle/Pydiction/complete-dict')
+
+"=====================================================
+"" ALE Linter
+"=====================================================
+
+"Setting for ale linters C/C++ and Python"
+let g:ale_linters = {
+      \   'python': ['flake8', 'pylint'],
+      \   'ruby': ['standardrb', 'rubocop'],
+      \   'javascript': ['eslint'],
+      \   'cpp': ['clang','clangtidy'], 'c': ['clang','clangtidy'],
+      \}
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors 
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+let g:ale_cpp_clangtidy_checks = []
+let g:ale_cpp_clangtidy_executable = 'clang-tidy'
+let g:ale_c_parse_compile_commands=1
+let g:ale_cpp_clangtidy_extra_options = ''
+let g:ale_cpp_clangtidy_options = ''
+let g:ale_set_balloons=1
+let g:ale_linters_explicit=1
+
+
+let g:ale_fix_on_save = 0
+let g:ale_completion_enabled = 1
+let g:ale_set_highlights = 1
+
+let g:airline#extensions#ale#enabled = 1
+
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['autopep8', 'yapf']
+
+" Disable warnings about trailing whitespace for Python files.
+let b:ale_warn_about_trailing_whitespace = 0
+
+let g:ale_list_window_size = 5
+
+let opts = '-std=c++17 -Wall -Wextra -isystem /usr/include/c++/v1 -I/usr/include/c++/v1 -I/usr/local/include -I/usr/include -I/usr/include/x86_64-linux-gnu'
+let g:ale_c_build_dir = "./build"                                                
+let g:ale_c_parse_makefile = 1      
+let g:ale_cpp_cc_options    = opts
+let g:ale_cpp_gcc_options   = opts
+let g:ale_cpp_clang_options = opts
+
+set statusline=%{LinterStatus()}
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = '.'
+
+"=====================================================
+"" C++ Clang Completion
+"=====================================================
+
+let g:clang_use_library      = 1
+let g:clang_auto_select      = 0
+let g:clang_complete_auto    = 1
+let g:clang_complete_copen   = 1
+let g:clang_complete_macros  = 1
+let g:clang_complete_patters = 1
+set completeopt=menu,longest
+
+" CentOS
+let g:clang_library_path = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
+" Ubuntu
+"let g:clang_library_path = '/usr/lib/x86_64-linux-gnu/libclang-14.so.1'
+let g:clang_auto_user_options='path, .clang_complete'
+let g:clang_snippets_engine = 'clang_complete'
+
+"=====================================================
+"" Python PEP 8 stuff
+"=====================================================
 " Number of spaces that a pre-existing tab is equal to.
 au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
 
@@ -158,143 +500,15 @@ nnoremap <space> za
 "js stuff"
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
-""""""""""" Start Powerline Settings """"""""""""""""
+:hi Normal ctermfg=white ctermbg=black
 
-set guifont=Inconsolata\ for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
 
-if has("gui_running")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n"
-        set guifont=Source\ Code\ Pro\ for\ Powerline:h15
-        colorscheme PaperColor              " set color scheme
-    endif
-endif
-
-if has("syntax")
-  syntax on
-endif
-
-augroup autoformat_settings
-	autocmd FileType bzl AutoFormatBuffer buildifier
-	autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer git-clang-format
-	autocmd FileType dart AutoFormatBuffer dartfmt
-	autocmd FileType go AutoFormatBuffer gofmt
-	autocmd FileType gn AutoFormatBuffer gn
-	autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-	autocmd FileType java AutoFormatBuffer google-java-format
-	autocmd FileType python AutoFormatBuffer yapf
-	autocmd FileType python AutoFormatBuffer autopep8
-	autocmd FileType rust AutoFormatBuffer rustfmt
-	autocmd FileType vue AutoFormatBuffer prettier
-augroup END
-
-"Plugin for prediciton"
-let g:pydiction_location = expand('~/.vim/bundle/Pydiction/complete-dict')
-
-"Setting for ale linters C/C++ and Python"
-let g:ale_linters = {
-      \   'python': ['flake8', 'pylint'],
-      \   'ruby': ['standardrb', 'rubocop'],
-      \   'javascript': ['eslint'],
-      \   'cpp': ['clang'], 'c': ['clang'],
-      \}
-
-let g:ale_fix_on_save = 0
-
-"let g:ale_completion_enabled = 1"
-
-let g:ale_set_highlights = 1
-
-let g:airline#extensions#ale#enabled = 1
-
-" Fix Python files with autopep8 and yapf.
-let b:ale_fixers = ['autopep8', 'yapf']
-
-" Disable warnings about trailing whitespace for Python files.
-let b:ale_warn_about_trailing_whitespace = 0
-
-let g:ale_list_window_size = 5
-
-let g:airline_theme = "nord"
-
-map <F5> :call CurtineIncSw()<CR>
-
-hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
-
-au filetype vimwiki silent! iunmap <buffer> <Tab>
-
-let maplocalleader="\<space>"
-let g:TasksMarkerBase = '☐'
-let g:TasksMarkerInProgress = '»'
-let g:TasksMarkerDone = '✔'
-let g:TasksMarkerCancelled = '✘'
-let g:TasksDateFormat = '%Y-%m-%d %H:%M'
-let g:TasksAttributeMarker = '@'
-let g:TasksArchiveSeparator = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿'
-
-" set color schemes"
-
-colorscheme nord
-set background=dark " for the dark version
-"set background=light " for the light version
-
-hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
-
-" air-line
-"let g:airline_theme='nord'
-let g:airline_theme='wombat'
-let g:airline_powerline_fonts = 2
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-"ale linters"
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-set statusline=%{LinterStatus()}
-
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:syntastic_python_checkers = ['flake8', 'pylint', 'mypy']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_loc_list_height = 5
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
