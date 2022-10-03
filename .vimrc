@@ -77,11 +77,17 @@ call vundle#begin()
     Plugin 'rakr/vim-one'
     Plugin 'itchyny/lightline.vim'
 
+    
     Plugin 'pacha/vem-dark'
     
     "-------------------=== Plugin for Git Integration ===-------------------
     Plugin 'airblade/vim-gitgutter'
     Plugin 'tpope/vim-fugitive'
+  
+   "-------------------=== Completion Framework  ===-------------------   
+    Plugin 'Shougo/deoplete.nvim'
+    Plugin 'roxma/nvim-yarp'
+    Plugin 'roxma/vim-hug-neovim-rpc'
 
 call vundle#end()
 
@@ -267,6 +273,10 @@ let g:airline_symbols.linenr = ''
 " Switch to your current theme
 let g:airline_theme = 'wombat'
 
+let g:airline#extensions#tabline#enabled = 1
+" Disable/enable status line "
+let g:airline_disable_statusline = 0
+
 " Always show tabs
 set showtabline=1
 
@@ -406,31 +416,77 @@ let g:ale_fix_on_save = 0
 let g:ale_completion_enabled = 1
 let g:ale_set_highlights = 1
 
-let g:airline#extensions#ale#enabled = 1
-
 " Fix Python files with autopep8 and yapf.
 let b:ale_fixers = ['autopep8', 'yapf']
 
 " Disable warnings about trailing whitespace for Python files.
 let b:ale_warn_about_trailing_whitespace = 0
 
+" https://github.com/dense-analysis/ale/issues/2507
 let g:ale_list_window_size = 5
 
-let opts = '-std=c++17 -Wall -Wextra -isystem /usr/include/c++/v1 -I/usr/include/c++/v1 -I/usr/local/include -I/usr/include -I/usr/include/x86_64-linux-gnu'
+let opts = '-std=c++17 -Wall -Wextra -Wshadow -isystem /usr/include/c++/v1 -I/usr/include/c++/v1 -I/usr/local/include -I/usr/include -I/usr/include/x86_64-linux-gnu'
 let g:ale_c_build_dir = "./build"                                                
 let g:ale_c_parse_makefile = 1      
 let g:ale_cpp_cc_options    = opts
 let g:ale_cpp_gcc_options   = opts
 let g:ale_cpp_clang_options = opts
-
+let g:ale_c_cppcheck_executable = 'cppcheck'
+let g:ale_c_cppcheck_options = '--enable=style'
+let g:ale_c_gcc_executable = 'gcc'
+let g:ale_c_gcc_options = '-std=c11 -Wall'
+let g:ale_cache_executable_check_failures = v:null
+let g:ale_change_sign_column_color = 0
+let g:ale_command_wrapper = ''
+let g:ale_completion_delay = v:null
+let g:ale_completion_enabled = 0
+let g:ale_completion_max_suggestions = v:null
+let g:ale_echo_cursor = 1
+let g:ale_echo_msg_info_str = 'Info'
+let g:ale_echo_msg_warning_str = 'Warning'
+let g:ale_enabled = 1
+let g:ale_fix_on_save = 0
+let g:ale_fixers = {}
+let g:ale_history_enabled = 1
+let g:ale_history_log_output = 1
+let g:ale_keep_list_window_open = 0
+let g:ale_lint_delay = 200
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_filetype_changed = 1
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_linter_aliases = {}
+let g:ale_linters_explicit = 0
+let g:ale_list_vertical = 0
+let g:ale_list_window_size = 10
+let g:ale_lsp_root = {}
+let g:ale_max_buffer_history_size = 20
+let g:ale_max_signs = -1
+let g:ale_maximum_file_size = v:null
+let g:ale_open_list = 0
+let g:ale_pattern_options = v:null
+let g:ale_pattern_options_enabled = v:null
+let g:ale_set_balloons = 0
+let g:ale_set_highlights = 1
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+let g:ale_set_signs = 1
+let g:ale_sign_column_always = 0
+let g:ale_sign_info = 'ⓘ'
+let g:ale_sign_offset = 1000000
+let g:ale_sign_info = '⚠'
+let g:ale_sign_style_error = '✖'
+let g:ale_sign_style_warning = '⚠'
+let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = v:null
+let g:ale_type_map = {}
+let g:ale_use_global_executables = v:null
+let g:ale_virtualtext_cursor = 0
+let g:ale_warn_about_trailing_blank_lines = 1
+let g:ale_warn_about_trailing_whitespace = 1
 set statusline=%{LinterStatus()}
 
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-let g:ale_sign_error = 'X'
-let g:ale_sign_warning = '.'
 
 "=====================================================
 "" C++ Clang Completion
@@ -513,6 +569,6 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:airline#extensions#tabline#enabled = 1
-" Disable/enable status line "
-let g:airline_disable_statusline = 0
+"Deoplate Code Completion"
+"Plz install pip3 install --user pynvim"
+let g:deoplete#enable_at_startup = 1
