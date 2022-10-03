@@ -84,7 +84,8 @@ call vundle#begin()
     Plugin 'airblade/vim-gitgutter'
     Plugin 'tpope/vim-fugitive'
   
-   "-------------------=== Completion Framework  ===-------------------   
+   "-------------------=== Completion Framework  ===-------------------
+   "Plz install pip3 install --user pynvim"
     Plugin 'Shougo/deoplete.nvim'
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
@@ -570,5 +571,4 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "Deoplate Code Completion"
-"Plz install pip3 install --user pynvim"
 let g:deoplete#enable_at_startup = 1
