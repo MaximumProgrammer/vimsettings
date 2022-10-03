@@ -80,6 +80,9 @@ call vundle#begin()
     Plugin 'itchyny/lightline.vim'
 
     Plugin 'pacha/vem-dark'
+    
+    "-------------------=== Plugin for Git Integration ===-------------------
+    Plugin 'tpope/vim-fugitive'
 
     "Plugin for git"
 call vundle#end()
