@@ -94,7 +94,7 @@ filetype plugin indent on
 syntax enable                               " syntax highlight
 
 set t_Co=256                                " set 256 colors
-colorscheme vem-dark                          " set color scheme
+colorscheme vem-dark                        " set color scheme
 
 set number                                  " show line numbers
 set ruler
@@ -512,3 +512,7 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:airline#extensions#tabline#enabled = 1
+" Disable/enable status line "
+let g:airline_disable_statusline = 0
