@@ -84,8 +84,7 @@ call vundle#begin()
     Plugin 'airblade/vim-gitgutter'
     Plugin 'tpope/vim-fugitive'
   
-   "-------------------=== Completion Framework  ===-------------------
-   "Plz install pip3 install --user pynvim"
+   "-------------------=== Completion Framework  ===-------------------   
     Plugin 'Shougo/deoplete.nvim'
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
@@ -427,7 +426,7 @@ let b:ale_warn_about_trailing_whitespace = 0
 let g:ale_list_window_size = 5
 
 let opts = '-std=c++17 -Wall -Wextra -Wshadow -isystem /usr/include/c++/v1 -I/usr/include/c++/v1 -I/usr/local/include -I/usr/include -I/usr/include/x86_64-linux-gnu'
-let g:ale_c_build_dir = "./build"                                                
+let g:ale_c_build_dir_names = ['build', 'bin','.','output_ninja*']                                         
 let g:ale_c_parse_makefile = 1      
 let g:ale_cpp_cc_options    = opts
 let g:ale_cpp_gcc_options   = opts
@@ -571,4 +570,5 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "Deoplate Code Completion"
+"Plz install pip3 install --user pynvim"
 let g:deoplete#enable_at_startup = 1
