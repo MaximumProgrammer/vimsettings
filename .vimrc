@@ -89,6 +89,7 @@ call vundle#begin()
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
 
+
 call vundle#end()
 
 " Add plugins here which you want to add
@@ -571,4 +572,9 @@ let g:syntastic_check_on_wq = 0
 
 "Deoplate Code Completion"
 "Plz install pip3 install --user pynvim"
+"sudo pip3 install pynvim"
 let g:deoplete#enable_at_startup = 1
+
+if has('pythonx')
+    set pyxversion=3
+endif
