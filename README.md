@@ -1,4 +1,4 @@
-# vimsettings
+# Vimsettings
 
 These are mainly my vim settings which are used for programming on linux with c++ and linux.
 
