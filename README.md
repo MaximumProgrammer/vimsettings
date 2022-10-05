@@ -62,6 +62,13 @@ make -j8
 make install
 ```
 
+Also install following things for vim:
+
+```
+sudo pip3 install pynvim
+```
+
+
 On Centos and perhaps Ubuntu:
 
 ```
@@ -76,5 +83,3 @@ https://www.gitkraken.com/
 https://rumpel.dev/git-can-cause-problems-with-vim-plug/
 https://riptutorial.com/git/example/18336/gitk-and-git-gui
 ```
-
-
