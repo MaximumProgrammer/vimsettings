@@ -62,8 +62,19 @@ make -j8
 make install
 ```
 
-On Centos:
+On Centos and perhaps Ubuntu:
 
 ```
 ./configure --with-features=huge             --enable-multibyte             --enable-rubyinterp=yes  --enable-pythoninterp=yes    --with-python-config-dir=/lib64/python2.7/config/     --enable-python3interp=yes             --with-python3-config-dir=/lib64/python3.6/config-3.6m-x86_64-linux-gnu/          --enable-luainterp=yes             --enable-gui=gtk2             --enable-cscope             --prefix=/usr/local
 ```
+
+Important to read:
+
+```
+https://www.makeuseof.com/best-vim-plugins/
+https://www.gitkraken.com/
+https://rumpel.dev/git-can-cause-problems-with-vim-plug/
+https://riptutorial.com/git/example/18336/gitk-and-git-gui
+```
+
+
