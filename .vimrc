@@ -89,7 +89,6 @@ call vundle#begin()
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
 
-
 call vundle#end()
 
 " Add plugins here which you want to add
@@ -102,6 +101,9 @@ syntax enable                               " syntax highlight
 
 set t_Co=256                                " set 256 colors
 colorscheme vem-dark                        " set color scheme
+
+"set mouse=n
+"set ttymouse=xterm2
 
 set number                                  " show line numbers
 set ruler
@@ -578,3 +580,38 @@ let g:deoplete#enable_at_startup = 1
 if has('pythonx')
     set pyxversion=3
 endif
+
+"Rainbow colors"
+
+"au FileType c,cpp,objc,objcpp call rainbow#load()
+
+let g:rainbow_active = 1
+
+
+
+"=====================================================
+"" CTRL P
+"=====================================================
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+"=====================================================
+"" Vim Tabline
+"=====================================================
+
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)
+
+let g:buffet_always_show_tabline =1
+let g:buffet_powerline_separators=1
+let g:buffet_separator=" "
+let g:buffet_show_index=1
