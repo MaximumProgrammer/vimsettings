@@ -92,8 +92,9 @@ call vundle#begin()
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
 
-   "-------------------=== Deoplate Clang Integration  ===-------------------    
-   " Plugin 'zchee/deoplete-clang' #should be used
+    "-------------------=== Deoplate Clang Integration  ===-------------------    
+    "Plugin 'zchee/deoplete-clang' 
+    Plugin 'tweekmonster/deoplete-clang2'
 
 call vundle#end()
 
@@ -419,6 +420,13 @@ let g:deoplete#sources#clang#clang_header = '/usr/include/lib/clang'
 let g:deoplete#sources#clang#std#cpp = 'c++11'
 let g:deoplete#sources#clang#sort_algo = 'priority'
 let g:deoplete#sources#clang#clang_complete_database = './../compile_commands.json'
+"let g:deoplete#sources#clang#flags
+let g:deoplete#sources#clang#flags = ['--std=c++11']
+let g:deoplete#sources#clang#autofill_neomake = 1
+let g:deoplete#sources#clang#executable = "/opt/rh/llvm-toolset-11.0/root/usr/bin/clang"
+let g:deoplete#sources#clang#std = {'c': 'c11', 'cpp': 'c++17'}
+
+call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
 
 "=====================================================
 "" Python PEP 8 stuff
