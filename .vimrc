@@ -52,6 +52,7 @@ call vundle#begin()
     Plugin 'vim-scripts/indentpython.vim'
     Plugin 'psf/black'
     Plugin 'davidhalter/jedi-vim'
+    Plugin 'deoplete-plugins/deoplete-jedi'
 
     "-------------------=== Switching C++ Headers ===-------------------
     Plugin 'derekwyatt/vim-fswitch'
