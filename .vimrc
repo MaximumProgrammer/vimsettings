@@ -422,9 +422,13 @@ let g:deoplete#sources#clang#sort_algo = 'priority'
 let g:deoplete#sources#clang#clang_complete_database = './../compile_commands.json'
 "let g:deoplete#sources#clang#flags
 let g:deoplete#sources#clang#flags = ['--std=c++11']
-let g:deoplete#sources#clang#autofill_neomake = 1
+" let g:deoplete#sources#clang#autofill_neomake = 1
 let g:deoplete#sources#clang#executable = "/opt/rh/llvm-toolset-11.0/root/usr/bin/clang"
 let g:deoplete#sources#clang#std = {'c': 'c11', 'cpp': 'c++17'}
+let g:deoplete#sources#clang#default_file = 'cpp'
+let g:deoplete#sources#clang#test_extensions = {'.h': ['.c', '.cpp', '.m', '.mm'], '.hpp': ['.cpp']}
+let g:deoplete#sources#clang#include_default_arguments=0
+let g:deoplete#sources#clang#autofill_neomake=1
 
 call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
 
