@@ -258,10 +258,10 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:airline#extensions#tabline#enabled = 1
 
 " adding space
-"let g:airline#extensions#tabline#left_sep = "\ue0b0"
-"let g:airline#extensions#tabline#left_alt_sep = "\ue0b1"
-"let g:airline#extensions#tabline#right_sep = "\ue0b1"
-"let g:airline#extensions#tabline#right_alt_sep = "\ue0b0"
+let g:airline#extensions#tabline#left_sep = "\ue0b0"
+let g:airline#extensions#tabline#left_alt_sep = "\ue0b1"
+let g:airline#extensions#tabline#right_sep = "\ue0b1"
+let g:airline#extensions#tabline#right_alt_sep = "\ue0b0"
 
 
 " airline symbols
@@ -284,6 +284,8 @@ let g:airline_theme = 'wombat'
 let g:airline#extensions#tabline#enabled = 1
 " Disable/enable status line "
 let g:airline_disable_statusline = 0
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
 
 " Always show tabs
 set showtabline=1
@@ -535,6 +537,7 @@ let g:clang_format#detect_style_file=1
 let g:clang_format#auto_format_on_insert_leave=1
 let g:clang_format#auto_format=0
 let g:clang_format#auto_formatexpr=1
+let g:clang_format#enable_fallback_style=1
 
 "=====================================================
 "" ALE Linter
@@ -646,3 +649,11 @@ let g:ale_warn_about_trailing_whitespace = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 set statusline=%{LinterStatus()}
+
+"=====================================================
+"" Float Term Settings
+"=====================================================
+
+let g:floaterm_keymap_toggle = '<F12>'
+let g:floaterm_width = 0.9
+let g:floaterm_height = 0.9
