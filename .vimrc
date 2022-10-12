@@ -22,6 +22,8 @@ call vundle#begin()
     Plugin 'drewtempelmeyer/palenight.vim'
     Plugin 'bogado/file-line'
     Plugin 'irrationalistic/vim-tasks'
+    Plugin 'rhysd/vim-clang-format'
+    Plugin 'voldikss/vim-floaterm'             " float term window in vim
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
@@ -50,7 +52,7 @@ call vundle#begin()
     Plugin 'vim-scripts/indentpython.vim'
     Plugin 'psf/black'
     Plugin 'davidhalter/jedi-vim'
- 
+
     "-------------------=== Switching C++ Headers ===-------------------
     Plugin 'derekwyatt/vim-fswitch'
     Plugin 'derekwyatt/vim-protodef'
@@ -88,6 +90,9 @@ call vundle#begin()
     Plugin 'Shougo/deoplete.nvim'
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
+
+   "-------------------=== Deoplate Clang Integration  ===-------------------    
+   " Plugin 'zchee/deoplete-clang' #should be used
 
 call vundle#end()
 
@@ -382,116 +387,6 @@ let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python']
 let g:pydiction_location = expand('~/.vim/bundle/Pydiction/complete-dict')
 
 "=====================================================
-"" ALE Linter
-"=====================================================
-
-"Setting for ale linters C/C++ and Python"
-let g:ale_linters = {
-      \   'python': ['flake8', 'pylint'],
-      \   'ruby': ['standardrb', 'rubocop'],
-      \   'javascript': ['eslint'],
-      \   'cpp': ['clang','clangtidy'], 'c': ['clang','clangtidy'],
-      \}
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors 
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-let g:ale_cpp_clangtidy_checks = []
-let g:ale_cpp_clangtidy_executable = 'clang-tidy'
-let g:ale_c_parse_compile_commands=1
-let g:ale_cpp_clangtidy_extra_options = ''
-let g:ale_cpp_clangtidy_options = ''
-let g:ale_set_balloons=1
-let g:ale_linters_explicit=1
-
-
-let g:ale_fix_on_save = 0
-let g:ale_completion_enabled = 1
-let g:ale_set_highlights = 1
-
-" Fix Python files with autopep8 and yapf.
-let b:ale_fixers = ['autopep8', 'yapf']
-
-" Disable warnings about trailing whitespace for Python files.
-let b:ale_warn_about_trailing_whitespace = 0
-
-" https://github.com/dense-analysis/ale/issues/2507
-let g:ale_list_window_size = 5
-
-let opts = '-std=c++17 -Wall -Wextra -Wshadow -isystem /usr/include/c++/v1 -I/usr/include/c++/v1 -I/usr/local/include -I/usr/include -I/usr/include/x86_64-linux-gnu'
-let g:ale_c_build_dir_names = ['build', 'bin','.','output_ninja*']                                         
-let g:ale_c_parse_makefile = 1      
-let g:ale_cpp_cc_options    = opts
-let g:ale_cpp_gcc_options   = opts
-let g:ale_cpp_clang_options = opts
-let g:ale_c_cppcheck_executable = 'cppcheck'
-let g:ale_c_cppcheck_options = '--enable=style'
-let g:ale_c_gcc_executable = 'gcc'
-let g:ale_c_gcc_options = '-std=c11 -Wall'
-let g:ale_cache_executable_check_failures = v:null
-let g:ale_change_sign_column_color = 0
-let g:ale_command_wrapper = ''
-let g:ale_completion_delay = v:null
-let g:ale_completion_enabled = 0
-let g:ale_completion_max_suggestions = v:null
-let g:ale_echo_cursor = 1
-let g:ale_echo_msg_info_str = 'Info'
-let g:ale_echo_msg_warning_str = 'Warning'
-let g:ale_enabled = 1
-let g:ale_fix_on_save = 0
-let g:ale_fixers = {}
-let g:ale_history_enabled = 1
-let g:ale_history_log_output = 1
-let g:ale_keep_list_window_open = 0
-let g:ale_lint_delay = 200
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_filetype_changed = 1
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linter_aliases = {}
-let g:ale_linters_explicit = 0
-let g:ale_list_vertical = 0
-let g:ale_list_window_size = 10
-let g:ale_lsp_root = {}
-let g:ale_max_buffer_history_size = 20
-let g:ale_max_signs = -1
-let g:ale_maximum_file_size = v:null
-let g:ale_open_list = 0
-let g:ale_pattern_options = v:null
-let g:ale_pattern_options_enabled = v:null
-let g:ale_set_balloons = 0
-let g:ale_set_highlights = 1
-let g:ale_set_loclist = 1
-let g:ale_set_quickfix = 0
-let g:ale_set_signs = 1
-let g:ale_sign_column_always = 0
-let g:ale_sign_info = 'ⓘ'
-let g:ale_sign_offset = 1000000
-let g:ale_sign_info = '⚠'
-let g:ale_sign_style_error = '✖'
-let g:ale_sign_style_warning = '⚠'
-let g:ale_sign_warning = '⚠'
-let g:ale_statusline_format = v:null
-let g:ale_type_map = {}
-let g:ale_use_global_executables = v:null
-let g:ale_virtualtext_cursor = 0
-let g:ale_warn_about_trailing_blank_lines = 1
-let g:ale_warn_about_trailing_whitespace = 1
-set statusline=%{LinterStatus()}
-
-
-"=====================================================
 "" C++ Clang Completion
 "=====================================================
 
@@ -509,6 +404,15 @@ let g:clang_library_path = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so
 "let g:clang_library_path = '/usr/lib/x86_64-linux-gnu/libclang-14.so.1'
 let g:clang_auto_user_options='path, .clang_complete'
 let g:clang_snippets_engine = 'clang_complete'
+
+" Deoplate Clang 
+let g:deoplete#sources#clang#debug = 1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = g:clang_library_path 
+"let g:deoplete#sources#clang#clang_header = '/usr/include/lib/clang'
+"let g:deoplete#sources#clang#std#cpp = 'c++11'
+"let g:deoplete#sources#clang#sort_algo = 'priority'
+"let g:deoplete#sources#clang#clang_complete_database = '/home/pacov/code/build'
 
 "=====================================================
 "" Python PEP 8 stuff
@@ -615,3 +519,130 @@ let g:buffet_always_show_tabline =1
 let g:buffet_powerline_separators=1
 let g:buffet_separator=" "
 let g:buffet_show_index=1
+
+"=====================================================
+"" Vim Code Formattting
+"=====================================================
+
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11",
+            \ "BreakBeforeBraces" : "Stroustrup"}
+
+let g:clang_format#detect_style_file=1
+let g:clang_format#auto_format_on_insert_leave=1
+let g:clang_format#auto_format=0
+let g:clang_format#auto_formatexpr=1
+
+"=====================================================
+"" ALE Linter
+"=====================================================
+
+"Setting for ale linters C/C++ and Python"
+let g:ale_linters = {
+      \   'python': ['flake8', 'pylint'],
+      \   'ruby': ['standardrb', 'rubocop'],
+      \   'javascript': ['eslint'],
+      \   'cpp': ['clang','clangtidy'], 'c': ['clang','clangtidy'],
+      \}
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors 
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+let g:ale_cpp_clangtidy_checks = []
+let g:ale_cpp_clangtidy_executable = 'clang-tidy'
+let g:ale_c_parse_compile_commands=1
+let g:ale_cpp_clangtidy_extra_options = ''
+let g:ale_cpp_clangtidy_options = ''
+let g:ale_set_balloons=1
+let g:ale_linters_explicit=1
+
+
+let g:ale_fix_on_save = 0
+let g:ale_completion_enabled = 1
+let g:ale_set_highlights = 1
+
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['autopep8', 'yapf']
+
+" Disable warnings about trailing whitespace for Python files.
+let b:ale_warn_about_trailing_whitespace = 0
+
+" https://github.com/dense-analysis/ale/issues/2507
+let g:ale_list_window_size = 5
+
+let opts = '-std=c++17 -Wall -Wextra -Wshadow -isystem /usr/include/c++/v1 -I/usr/include/c++/v1 -I/usr/local/include -I/usr/include -I/usr/include/x86_64-linux-gnu'
+let g:ale_c_build_dir_names = ['build', 'bin','.','output_ninja*']                                         
+let g:ale_c_parse_makefile = 1      
+let g:ale_cpp_cc_options    = opts
+let g:ale_cpp_gcc_options   = opts
+let g:ale_cpp_clang_options = opts
+let g:ale_c_cppcheck_executable = 'cppcheck'
+let g:ale_c_cppcheck_options = '--enable=style'
+let g:ale_c_gcc_executable = 'gcc'
+let g:ale_c_gcc_options = '-std=c11 -Wall'
+let g:ale_cache_executable_check_failures = v:null
+let g:ale_change_sign_column_color = 0
+let g:ale_command_wrapper = ''
+let g:ale_completion_delay = v:null
+let g:ale_completion_enabled = 0
+let g:ale_completion_max_suggestions = v:null
+let g:ale_echo_cursor = 1
+let g:ale_echo_msg_info_str = 'Info'
+let g:ale_echo_msg_warning_str = 'Warning'
+let g:ale_enabled = 1
+let g:ale_fix_on_save = 0
+let g:ale_fixers = {}
+let g:ale_history_enabled = 1
+let g:ale_history_log_output = 1
+let g:ale_keep_list_window_open = 0
+let g:ale_lint_delay = 200
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_filetype_changed = 1
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_linter_aliases = {}
+let g:ale_linters_explicit = 0
+let g:ale_list_vertical = 0
+let g:ale_list_window_size = 10
+let g:ale_lsp_root = {}
+let g:ale_max_buffer_history_size = 20
+let g:ale_max_signs = -1
+let g:ale_maximum_file_size = v:null
+let g:ale_open_list = 0
+let g:ale_pattern_options = v:null
+let g:ale_pattern_options_enabled = v:null
+let g:ale_set_balloons = 0
+let g:ale_set_highlights = 1
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+let g:ale_set_signs = 1
+let g:ale_sign_column_always = 0
+let g:ale_sign_info = 'ⓘ'
+let g:ale_sign_offset = 1000000
+let g:ale_sign_info = '⚠'
+let g:ale_sign_style_error = '✖'
+let g:ale_sign_style_warning = '⚠'
+let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = v:null
+let g:ale_type_map = {}
+let g:ale_use_global_executables = v:null
+let g:ale_virtualtext_cursor = 0
+let g:ale_warn_about_trailing_blank_lines = 1
+let g:ale_warn_about_trailing_whitespace = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+set statusline=%{LinterStatus()}
