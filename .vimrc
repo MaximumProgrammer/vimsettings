@@ -254,9 +254,6 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" airline symbols
-let g:airline#extensions#tabline#enabled = 1
-
 " adding space
 let g:airline#extensions#tabline#left_sep = "\ue0b0"
 let g:airline#extensions#tabline#left_alt_sep = "\ue0b1"
@@ -280,12 +277,13 @@ let g:airline_symbols.linenr = ''
 "https://yyiki.org/wiki/Vim/Airline/
 " Switch to your current theme
 let g:airline_theme = 'wombat'
-
-let g:airline#extensions#tabline#enabled = 1
-" Disable/enable status line "
 let g:airline_disable_statusline = 0
 let g:airline_powerline_fonts=1
+let g:bufferline_echo = 0 
+let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#enabled = 1
+
+set fillchars+=stl:\ ,stlnc:\
 
 " Always show tabs
 set showtabline=1
@@ -407,14 +405,19 @@ let g:clang_library_path = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so
 let g:clang_auto_user_options='path, .clang_complete'
 let g:clang_snippets_engine = 'clang_complete'
 
-" Deoplate Clang 
+"=====================================================
+"" Deoplate Clang Completion
+"=====================================================
+" https://github.com/deoplete-plugins/deoplete-clang
+" https://installati.one/centos/8/clang-devel/
+
 let g:deoplete#sources#clang#debug = 1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#clang#libclang_path = g:clang_library_path 
-"let g:deoplete#sources#clang#clang_header = '/usr/include/lib/clang'
-"let g:deoplete#sources#clang#std#cpp = 'c++11'
-"let g:deoplete#sources#clang#sort_algo = 'priority'
-"let g:deoplete#sources#clang#clang_complete_database = '/home/pacov/code/build'
+let g:deoplete#sources#clang#clang_header = '/usr/include/lib/clang'
+let g:deoplete#sources#clang#std#cpp = 'c++11'
+let g:deoplete#sources#clang#sort_algo = 'priority'
+let g:deoplete#sources#clang#clang_complete_database = './../compile_commands.json'
 
 "=====================================================
 "" Python PEP 8 stuff
@@ -651,7 +654,7 @@ let g:ale_sign_warning = '--'
 set statusline=%{LinterStatus()}
 
 "=====================================================
-"" Float Term Settings
+"" ALE Linter
 "=====================================================
 
 let g:floaterm_keymap_toggle = '<F12>'
