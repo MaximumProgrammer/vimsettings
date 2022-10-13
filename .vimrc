@@ -92,9 +92,8 @@ call vundle#begin()
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
 
-    "-------------------=== Deoplate Clang Integration  ===-------------------    
-    "Plugin 'zchee/deoplete-clang' 
-    Plugin 'tweekmonster/deoplete-clang2'
+   "-------------------=== Vim Startup Screen  ===-------------------    
+    Plugin 'mhinz/vim-startify'
 
 call vundle#end()
 
@@ -410,27 +409,9 @@ let g:clang_snippets_engine = 'clang_complete'
 "=====================================================
 "" Deoplate Clang Completion
 "=====================================================
-" https://github.com/deoplete-plugins/deoplete-clang
-" https://installati.one/centos/8/clang-devel/
 
-let g:deoplete#sources#clang#debug = 1
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = g:clang_library_path 
-let g:deoplete#sources#clang#clang_header = '/usr/include/lib/clang'
-let g:deoplete#sources#clang#std#cpp = 'c++11'
-let g:deoplete#sources#clang#sort_algo = 'priority'
-let g:deoplete#sources#clang#clang_complete_database = './../compile_commands.json'
-"let g:deoplete#sources#clang#flags
-let g:deoplete#sources#clang#flags = ['--std=c++11']
-" let g:deoplete#sources#clang#autofill_neomake = 1
-let g:deoplete#sources#clang#executable = "/opt/rh/llvm-toolset-11.0/root/usr/bin/clang"
-let g:deoplete#sources#clang#std = {'c': 'c11', 'cpp': 'c++17'}
-let g:deoplete#sources#clang#default_file = 'cpp'
-let g:deoplete#sources#clang#test_extensions = {'.h': ['.c', '.cpp', '.m', '.mm'], '.hpp': ['.cpp']}
-let g:deoplete#sources#clang#include_default_arguments=0
-let g:deoplete#sources#clang#autofill_neomake=1
 
-call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
 
 "=====================================================
 "" Python PEP 8 stuff
@@ -673,3 +654,38 @@ set statusline=%{LinterStatus()}
 let g:floaterm_keymap_toggle = '<F12>'
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
+
+"=====================================================
+"" Startify Header 
+"=====================================================
+
+let s:header = [
+      \ '',
+      \ '                       __         _    _        _    _      _         _      ',
+      \ '                      / /    ___ | |_ ( ) ___  | |_ | |__  (_) _ __  | | __  ',
+      \ '                     / /    / _ \| __||/ / __| | __|| |_ \ | || |_ \ | |/ /  ',
+      \ '                    / /___ |  __/| |_    \__ \ | |_ | | | || || | | ||   <   ',
+      \ '                    \____/  \___| \__|   |___/  \__||_| |_||_||_| |_||_|\_\  ',
+      \ '                                                                             ',
+      \ '                                 [ ThinkVim   Author:taigacute ]             ',
+      \ '',
+      \ ]
+
+let s:footer = [
+      \ '                     +-------------------------------------------+',
+      \ '                     |            ThinkVim ^_^                   |',
+      \ '                     |    Talk is cheap Show me the code         |',
+      \ '                     |                                           |',
+      \ '                     |            GitHub:taigacute               |',
+      \ '                     +-------------------------------------------+',
+      \ ]
+
+function! s:center(lines) abort
+  let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
+  let centered_lines = map(copy(a:lines),
+        \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+  return centered_lines
+endfunction
+
+let g:startify_custom_header = s:center(s:header)
+let g:startify_custom_footer = s:center(s:footer)
