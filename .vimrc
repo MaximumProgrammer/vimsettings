@@ -1,4 +1,6 @@
 " Vim Settings for C/C++ and Python"
+" https://alex.dzyoba.com/blog/vim-revamp/
+" https://alpha2phi.medium.com/neovim-startup-screen-edd933ec8261
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -94,6 +96,7 @@ call vundle#begin()
 
    "-------------------=== Vim Startup Screen  ===-------------------    
     Plugin 'mhinz/vim-startify'
+    "Plugin 'goolord/alpha-nvim'
 
 call vundle#end()
 
@@ -147,6 +150,14 @@ filetype indent on
 set autoindent
 set nocompatible
 filetype off
+
+
+set undodir=~/.vim/undodir                   " settting undo file
+set undofile
+
+set clipboard+=unnamed
+
+set termguicolors
 
 """""""""""" END General Settings """"""""""""""""
 
@@ -648,6 +659,16 @@ let g:ale_sign_warning = '--'
 set statusline=%{LinterStatus()}
 
 "=====================================================
+"" Deoplate Clang X
+"=====================================================
+
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+
+" Change clang options
+call deoplete#custom#var('clangx', 'default_c_options', '-std=c++17 -Wall -Wextra -Wshadow')
+call deoplete#custom#var('clangx', 'default_cpp_options', '-std=c++17 -Wall -Wextra -Wshadow')
+
+"=====================================================
 "" ALE Linter
 "=====================================================
 
@@ -660,16 +681,42 @@ let g:floaterm_height = 0.9
 "=====================================================
 
 let s:header = [
-      \ '',
-      \ '                       __         _    _        _    _      _         _      ',
-      \ '                      / /    ___ | |_ ( ) ___  | |_ | |__  (_) _ __  | | __  ',
-      \ '                     / /    / _ \| __||/ / __| | __|| |_ \ | || |_ \ | |/ /  ',
-      \ '                    / /___ |  __/| |_    \__ \ | |_ | | | || || | | ||   <   ',
-      \ '                    \____/  \___| \__|   |___/  \__||_| |_||_||_| |_||_|\_\  ',
-      \ '                                                                             ',
-      \ '                                 [ ThinkVim   Author:taigacute ]             ',
-      \ '',
-      \ ]
+\ '            :h-                                  Nhy`                  ',
+\ '           -mh.                           h.    `Ndho                  ',
+\ '           hmh+                          oNm.   oNdhh                  ',
+\ '          `Nmhd`                        /NNmd  /NNhhd                  ',
+\ '          -NNhhy                      `hMNmmm`+NNdhhh                  ',
+\ '          .NNmhhs              ```....`..-:/./mNdhhh+                  ',
+\ '           mNNdhhh-     `.-::///+++////++//:--.`-/sd`                  ',
+\ '           oNNNdhhdo..://++//++++++/+++//++///++/-.`                   ',
+\ '       y.   `mNNNmhhhdy+/++++//+/////++//+++///++////-` `/oos:         ',
+\ '  .    Nmy:  :NNNNmhhhhdy+/++/+++///:.....--:////+++///:.`:s+          ',
+\ ' h-   dNmNmy oNNNNNdhhhhy:/+/+++/-         ---:/+++//++//.`            ',
+\ ' hd+` -NNNy`./dNNNNNhhhh+-://///    -+oo:`  ::-:+////++///:`           ',
+\ ' /Nmhs+oss-:++/dNNNmhho:--::///    /mmmmmo  ../-///++///////.          ',
+\ '  oNNdhhhhhhhs//osso/:---:::///    /yyyyso  ..o+-//////////:/.         ',
+\ '   /mNNNmdhhhh/://+///::://////     -:::- ..+sy+:////////::/:/.        ',
+\ '     /hNNNdhhs--:/+++////++/////.      ..-/yhhs-/////////::/::/`       ',
+\ '       .ooo+/-::::/+///////++++//-/ossyyhhhhs/:///////:::/::::/:       ',
+\ '      -///:::::::////++///+++/////:/+ooo+/::///////.::://::---+`       ',
+\ '      /////+//++++/////+////-..//////////::-:::--`.:///:---:::/:       ',
+\ '      //+++//++++++////+++///::--                 .::::-------::       ',
+\ '       :/++++///////////++++//////.                -:/:----::../-      ',
+\ '       -/++++//++///+//////////////               .::::---:::-.+`      ',
+\ '      `////////////////////////////:.            --::-----...-/        ',
+\ '        -///://////////////////////::::-..      :-:-:-..-::.`.+`       ',
+\ '         :/://///:///::://::://::::::/:::::::-:---::-.-....``/- -      ',
+\ '           ::::://::://::::::::::::::----------..-:....`.../- -+oo/    ',
+\ '            -/:::-:::::---://:-::-::::----::---.-.......`-/.      ``   ',
+\ '           s-`::--:::------:////----:---.-:::...-.....`./:             ',
+\ '         yMNy.`::-.--::..-dmmhhhs-..-.-.......`.....-/:`               ',
+\ '         oMNNNh. `-::--...:NNNdhhh/.--.`..``.......:/-                 ',
+\ '       :dy+:`      .-::-..NNNhhd+``..`...````.-::-`                    ',
+\ '                        .-:mNdhh:.......--::::-`                       ',
+\ '                           yNh/..------..`                             ',
+\ '                                                                       ',
+\]
+
 
 let s:footer = [
       \ '                     +-------------------------------------------+',
@@ -689,13 +736,3 @@ endfunction
 
 let g:startify_custom_header = s:center(s:header)
 let g:startify_custom_footer = s:center(s:footer)
-
-"=====================================================
-"" Deoplate
-"=====================================================
-
-call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
-
-" Change clang options
-call deoplete#custom#var('clangx', 'default_c_options', '')
-call deoplete#custom#var('clangx', 'default_cpp_options', '')
