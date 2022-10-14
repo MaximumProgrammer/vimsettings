@@ -78,8 +78,11 @@ On Centos and perhaps Ubuntu:
 Important to read:
 
 ```
+https://alpha2phi.medium.com/neovim-startup-screen-edd933ec8261
+https://alex.dzyoba.com/blog/vim-revamp/
 https://www.makeuseof.com/best-vim-plugins/
 https://www.gitkraken.com/
 https://rumpel.dev/git-can-cause-problems-with-vim-plug/
 https://riptutorial.com/git/example/18336/gitk-and-git-gui
+
 ```
