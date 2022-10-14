@@ -78,6 +78,7 @@ On Centos and perhaps Ubuntu:
 Important to read for vim users:
 
 ```
+https://github.com/mhinz/vim-galore
 https://alpha2phi.medium.com/neovim-startup-screen-edd933ec8261
 https://alex.dzyoba.com/blog/vim-revamp/
 https://www.makeuseof.com/best-vim-plugins/
