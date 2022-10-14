@@ -129,9 +129,9 @@ set showmatch                               " shows matching part of bracket pai
 
 set enc=utf-8	                            " utf-8 by default
 
-set nobackup 	                            " no backup files
-set nowritebackup                           " only in case you don't want a backup file while editing
-set noswapfile 	                            " no swap files
+"set nobackup 	                            " no backup files
+"set nowritebackup                          " only in case you don't want a backup file while editing
+"set noswapfile 	                        " no swap files
 
 set backspace=indent,eol,start              " backspace removes all (indents, EOLs, start) What is start?
 
@@ -679,6 +679,7 @@ let g:floaterm_height = 0.9
 "=====================================================
 "" Startify Header 
 "=====================================================
+
 
 let s:header = [
 \ '            :h-                                  Nhy`                  ',
