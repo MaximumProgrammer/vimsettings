@@ -75,14 +75,17 @@ On Centos and perhaps Ubuntu:
 ./configure --with-features=huge             --enable-multibyte             --enable-rubyinterp=yes  --enable-pythoninterp=yes    --with-python-config-dir=/lib64/python2.7/config/     --enable-python3interp=yes             --with-python3-config-dir=/lib64/python3.6/config-3.6m-x86_64-linux-gnu/          --enable-luainterp=yes             --enable-gui=gtk2             --enable-cscope             --prefix=/usr/local
 ```
 
-Important to read:
+Important to read for vim users:
 
 ```
 https://alpha2phi.medium.com/neovim-startup-screen-edd933ec8261
 https://alex.dzyoba.com/blog/vim-revamp/
 https://www.makeuseof.com/best-vim-plugins/
+```
+
+Important to read for git users:
+```
 https://www.gitkraken.com/
 https://rumpel.dev/git-can-cause-problems-with-vim-plug/
 https://riptutorial.com/git/example/18336/gitk-and-git-gui
-
 ```
