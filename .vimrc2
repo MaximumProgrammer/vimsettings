@@ -97,7 +97,7 @@ call vundle#begin()
         Plugin 'roxma/nvim-yarp'
         Plugin 'roxma/vim-hug-neovim-rpc'
     endif
-
+ 
    "-------------------=== Vim Startup Screen  ===-------------------    
     Plugin 'mhinz/vim-startify'
    "Plugin 'goolord/alpha-nvim'
@@ -190,6 +190,7 @@ if has("gui_running")
 endif
 
 """"""""""" END of PowerLine Settings  """""""""""""""call vundle#end()
+
 
 """""""""""" START Auto Formatting Settings """"""""""""""""
 
