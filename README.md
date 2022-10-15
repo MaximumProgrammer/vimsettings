@@ -92,3 +92,13 @@ https://rumpel.dev/git-can-cause-problems-with-vim-plug/
 https://riptutorial.com/git/example/18336/gitk-and-git-gui
 ```
 
+.vimrc Templates:
+```
+https://gist.github.com/simonista/8703722
+https://github.com/amix/vimrc
+```
+
+Same Vim and NeoVim Settings:
+```
+https://www.baeldung.com/linux/vim-neovim-configs
+```
