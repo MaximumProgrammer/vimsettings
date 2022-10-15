@@ -97,7 +97,7 @@ call vundle#begin()
         Plugin 'roxma/nvim-yarp'
         Plugin 'roxma/vim-hug-neovim-rpc'
     endif
- 
+
    "-------------------=== Vim Startup Screen  ===-------------------    
     Plugin 'mhinz/vim-startify'
    "Plugin 'goolord/alpha-nvim'
@@ -190,7 +190,6 @@ if has("gui_running")
 endif
 
 """"""""""" END of PowerLine Settings  """""""""""""""call vundle#end()
-
 
 """""""""""" START Auto Formatting Settings """"""""""""""""
 
@@ -602,7 +601,7 @@ let g:ale_cpp_clang_options = opts
 let g:ale_c_cppcheck_executable = 'cppcheck'
 let g:ale_c_cppcheck_options = '--enable=style'
 let g:ale_c_gcc_executable = 'gcc'
-let g:ale_c_gcc_options = '-std=c11 -Wall'
+let g:ale_c_gcc_options = opts
 let g:ale_cache_executable_check_failures = v:null
 let g:ale_change_sign_column_color = 0
 let g:ale_command_wrapper = ''
