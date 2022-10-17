@@ -117,9 +117,6 @@ syntax enable                               " syntax highlight
 set t_Co=256                                " set 256 colors
 colorscheme vem-dark                        " set color scheme
 
-"set-option -g  default-terminal 'tmux-256color'
-"set-option -ga terminal-overrides ',xterm-256color:Tc'
-
 "set mouse=n
 "set ttymouse=xterm2
 
@@ -138,9 +135,13 @@ set showmatch                               " shows matching part of bracket pai
 
 set enc=utf-8	                            " utf-8 by default
 
-"set nobackup 	                            " no backup files
-"set nowritebackup                          " only in case you don't want a backup file while editing
-"set noswapfile 	                        " no swap files
+set nobackup 	                            " no backup files
+set nowritebackup                           " only in case you don't want a backup file while editing
+set noswapfile 	                            " no swap files
+
+set noerrorbells                            " no bells
+set novisualbell
+set t_vb=
 
 set backspace=indent,eol,start              " backspace removes all (indents, EOLs, start) What is start?
 
