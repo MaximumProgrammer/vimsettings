@@ -102,3 +102,8 @@ Same Vim and NeoVim Settings:
 ```
 https://www.baeldung.com/linux/vim-neovim-configs
 ```
+
+Setting backup for files:
+```
+https://github.com/mhinz/vim-galore
+```
