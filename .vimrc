@@ -90,15 +90,21 @@ call vundle#begin()
     Plugin 'tpope/vim-fugitive'
   
    "-------------------=== Completion Framework  ===-------------------   
-    Plugin 'Shougo/deoplete.nvim'
-    Plugin 'roxma/nvim-yarp'
-    Plugin 'roxma/vim-hug-neovim-rpc'
+    if has('nvim')
+        Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+        Plugin 'Shougo/deoplete.nvim'
+        Plugin 'roxma/nvim-yarp'
+        Plugin 'roxma/vim-hug-neovim-rpc'
+    endif
 
    "-------------------=== Vim Startup Screen  ===-------------------    
     Plugin 'mhinz/vim-startify'
-    "Plugin 'goolord/alpha-nvim'
+   "Plugin 'goolord/alpha-nvim'
 
 call vundle#end()
+
+let g:deoplete#enable_at_startup = 1
 
 " Add plugins here which you want to add
 
@@ -110,6 +116,9 @@ syntax enable                               " syntax highlight
 
 set t_Co=256                                " set 256 colors
 colorscheme vem-dark                        " set color scheme
+
+"set-option -g  default-terminal 'tmux-256color'
+"set-option -ga terminal-overrides ',xterm-256color:Tc'
 
 "set mouse=n
 "set ttymouse=xterm2
@@ -276,15 +285,18 @@ let g:airline#extensions#tabline#right_alt_sep = "\ue0b0"
 " airline symbols
 "https://vi.stackexchange.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin
 " unicode symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" airline symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 "https://yyiki.org/wiki/Vim/Airline/
 " Switch to your current theme
@@ -566,11 +578,12 @@ function! LinterStatus() abort
     let l:all_non_errors = l:counts.total - l:all_errors 
 
     return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
+        \   '%d⨉ %d⚠ ',
+        \   all_non_errors,
+        \   all_errors
+        \)
 endfunction
+
 
 let g:ale_cpp_clangtidy_checks = []
 let g:ale_cpp_clangtidy_executable = 'clang-tidy'
@@ -654,8 +667,8 @@ let g:ale_use_global_executables = v:null
 let g:ale_virtualtext_cursor = 0
 let g:ale_warn_about_trailing_blank_lines = 1
 let g:ale_warn_about_trailing_whitespace = 1
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
 set statusline=%{LinterStatus()}
 
 "=====================================================
