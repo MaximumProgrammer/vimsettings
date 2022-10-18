@@ -9,6 +9,12 @@ https://github.com/neovim/neovim
 ```
 , it is also possible to use these settings for neovim.
 
+Or download it:
+
+```
+https://mattermost.com/blog/how-to-install-and-set-up-neovim-for-code-editing/
+```
+
 Download vundle from github for using plugins:
 
 ```
