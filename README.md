@@ -2,7 +2,12 @@
 
 These are mainly my vim settings which are used for programming on linux with c++ and linux.
 
-You have to install vundle before u want to use vim with plugins:
+You have to install vundle before u want to use vim with plugins. There are maybe some bugs in vim better to use neovim:
+
+```
+https://github.com/neovim/neovim
+```
+, it is also possible to use these settings for neovim.
 
 Download vundle from github for using plugins:
 
