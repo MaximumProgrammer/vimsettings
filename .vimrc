@@ -1,6 +1,9 @@
 " Vim Settings for C/C++ and Python"
+
 " https://alex.dzyoba.com/blog/vim-revamp/
 " https://alpha2phi.medium.com/neovim-startup-screen-edd933ec8261
+" https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -26,6 +29,7 @@ call vundle#begin()
     Plugin 'irrationalistic/vim-tasks'
     Plugin 'rhysd/vim-clang-format'
     Plugin 'voldikss/vim-floaterm'             " float term window in vim
+    Plugin 'octol/vim-cpp-enhanced-highlight'
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
@@ -104,11 +108,9 @@ call vundle#begin()
 
 call vundle#end()
 
-let g:deoplete#enable_at_startup = 1
-
-" Add plugins here which you want to add
-
-"""""""""""" START General Settings """"""""""""""""
+"=====================================================
+"" General Settings
+"=====================================================
 
 filetype plugin indent on
 
@@ -161,6 +163,11 @@ set autoindent
 set nocompatible
 filetype off
 
+set background=light " for the light version
+
+hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
+
+set guifont=Hack:h10:cANSI
 
 set undodir=~/.vim/undodir                   " settting undo file
 set undofile
@@ -169,11 +176,9 @@ set clipboard+=unnamed
 
 set termguicolors
 
-"""""""""""" END General Settings """"""""""""""""
-
-
-
-"""""""""""" START Powerline Settings """"""""""""""""
+"=====================================================
+"" Powerline Settings
+"=====================================================
 
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
@@ -191,9 +196,9 @@ if has("gui_running")
     endif
 endif
 
-""""""""""" END of PowerLine Settings  """""""""""""""call vundle#end()
-
-"""""""""""" START Auto Formatting Settings """"""""""""""""
+"=====================================================
+"" Auto Formatting Settings
+"=====================================================
 
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
@@ -211,12 +216,10 @@ augroup autoformat_settings
   autocmd FileType swift AutoFormatBuffer swift-format
 augroup END
 
-
-"""""""""""" END Auto Formatting Settings """"""""""""""""
-
 "=====================================================
 "" Tabs / Buffers settings
 "=====================================================
+
 tab sball
 set switchbuf=useopen
 set laststatus=2
@@ -230,7 +233,7 @@ set incsearch	                            " incremental search
 set hlsearch	                            " highlight search results
 
 "=====================================================
-"" AirLine settings
+"" TaskManager
 "=====================================================
 
 map <F5> :call CurtineIncSw()<CR>
@@ -248,25 +251,16 @@ let g:TasksDateFormat = '%Y-%m-%d %H:%M'
 let g:TasksAttributeMarker = '@'
 let g:TasksArchiveSeparator = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿'
 
-" set color schemes"
-"let background=black " for the dark version
-"set background=light " for the light version
+"=====================================================
+"" AirLine settings
+"=====================================================
 
-hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
-
-set guifont=Hack:h10:cANSI
-
-" Airline
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
 let g:airline_symbols.linenr = '␊'
 let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
@@ -317,28 +311,30 @@ set showtabline=1
 set noshowmode
 
 "=====================================================
-
-"=====================================================
 "" SnipMate settings
 "=====================================================
+
 let g:snippets_dir='~/.vim/vim-snippets/snippets'
 
 "=====================================================
 "" Riv.vim settings
 "=====================================================
+
 let g:riv_disable_folding=1
 let g:riv_python_rst_hl=1
 
 "=====================================================
-"" Python settings
+"" SnipMate settings
 "=====================================================
 
-" omnicomplete
 set completeopt-=preview                    " remove omnicompletion dropdown
+
+"=====================================================
+"" PyMode settings
+"=====================================================
 
 " python executables for different plugins
 let g:pymode_python='python'
-let g:syntastic_python_python_exec='python'
 
 " rope
 let g:pymode_rope=0
@@ -358,14 +354,7 @@ let g:pymode_lint=0
 
 autocmd BufWritePost *.py call flake8#Flake8()
 
-" virtualenv
 let g:pymode_virtualenv=1
-
-" breakpoints
-let g:pymode_breakpoint=1
-let g:pymode_breakpoint_key='<leader>b'
-
-" syntax highlight
 let g:pymode_syntax=1
 let g:pymode_syntax_slow_sync=1
 let g:pymode_syntax_all=1
@@ -384,18 +373,39 @@ let g:pymode_syntax_builtin_objs=g:pymode_syntax_all
 let g:pymode_syntax_builtin_types=g:pymode_syntax_all
 let g:pymode_syntax_highlight_exceptions=g:pymode_syntax_all
 let g:pymode_syntax_docstrings=g:pymode_syntax_all
-
-" code folding
+let g:pydiction_location = expand('~/.vim/bundle/Pydiction/complete-dict')
 let g:pymode_folding=0
-
-" pep8 indents
 let g:pymode_indent=1
-
-" code running
 let g:pymode_run=1
 let g:pymode_run_bind='<F6>'
+let g:pymode_breakpoint=1
+let g:pymode_breakpoint_key='<leader>b'
 
-" syntastic
+"=====================================================
+"" Syntastic Settings
+"=====================================================
+
+let g:syntastic_python_checkers = ['flake8', 'pylint', 'mypy']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_loc_list_height = 5
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_python_exec='python'
+
+" syntatisc c++ settings
+let g:syntastic_cpp_checkers = ['cpplint']
+let g:syntastic_c_checkers = ['cpplint']
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+
+" The following two lines are optional. Configure it to your liking!
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" syntastic general settings
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=1
@@ -407,9 +417,6 @@ let g:syntastic_style_error_symbol='X'
 let g:syntastic_warning_symbol='x'
 let g:syntastic_style_warning_symbol='x'
 let g:syntastic_python_checkers=['flake8', 'pydocstyle', 'python']
-
-"Plugin for prediciton"
-let g:pydiction_location = expand('~/.vim/bundle/Pydiction/complete-dict')
 
 "=====================================================
 "" C++ Clang Completion
@@ -425,6 +432,7 @@ set completeopt=menu,longest
 
 " CentOS
 let g:clang_library_path = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
+
 " Ubuntu
 "let g:clang_library_path = '/usr/lib/x86_64-linux-gnu/libclang-14.so.1'
 let g:clang_auto_user_options='path, .clang_complete'
@@ -436,10 +444,10 @@ let g:clang_snippets_engine = 'clang_complete'
 
 let g:deoplete#enable_at_startup = 1
 
-
 "=====================================================
 "" Python PEP 8 stuff
 "=====================================================
+
 " Number of spaces that a pre-existing tab is equal to.
 au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
 
@@ -488,17 +496,6 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 :hi Normal ctermfg=white ctermbg=black
 
-
-let g:syntastic_python_checkers = ['flake8', 'pylint', 'mypy']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_loc_list_height = 5
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 "Deoplate Code Completion"
 "Plz install pip3 install --user pynvim"
 "sudo pip3 install pynvim"
@@ -513,8 +510,6 @@ endif
 "au FileType c,cpp,objc,objcpp call rainbow#load()
 
 let g:rainbow_active = 1
-
-
 
 "=====================================================
 "" CTRL P
@@ -544,7 +539,7 @@ let g:buffet_separator=" "
 let g:buffet_show_index=1
 
 "=====================================================
-"" Vim Code Formattting
+"" Vim Clang Code Formattting
 "=====================================================
 
 let g:clang_format#style_options = {
@@ -563,14 +558,16 @@ let g:clang_format#enable_fallback_style=1
 "=====================================================
 "" ALE Linter
 "=====================================================
-
-"Setting for ale linters C/C++ and Python"
+"
 let g:ale_linters = {
-      \   'python': ['flake8', 'pylint'],
-      \   'ruby': ['standardrb', 'rubocop'],
-      \   'javascript': ['eslint'],
-      \   'cpp': ['clang','clangtidy'], 'c': ['clang','clangtidy'],
-      \}
+      \  'python': ['flake8', 'pylint'], 
+      \  'vim': ['vint'],      
+      \  'ruby': ['standardrb', 'rubocop'],
+      \  'javascript': ['eslint'],
+      "\  'cpp': ['clang, gcc'], 'c': ['clang, gcc'],
+      "\  'cpp': ['clang, clangtidy'], 'c': ['clang, clangtidy'], 
+      \  'cpp': ['clang'], 'c': ['clang'],  
+\}
 
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
@@ -607,6 +604,7 @@ let b:ale_warn_about_trailing_whitespace = 0
 
 " https://github.com/dense-analysis/ale/issues/2507
 let g:ale_list_window_size = 5
+
 
 let opts = '-std=c++17 -Wall -Wextra -Wshadow -isystem /usr/include/c++/v1 -I/usr/include/c++/v1 -I/usr/local/include -I/usr/include -I/usr/include/x86_64-linux-gnu'
 let g:ale_c_build_dir_names = ['build', 'bin','.','output_ninja*']                                         
@@ -677,18 +675,25 @@ set statusline=%{LinterStatus()}
 "=====================================================
 
 call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
-
-" Change clang options
 call deoplete#custom#var('clangx', 'default_c_options', '-std=c++17 -Wall -Wextra -Wshadow')
 call deoplete#custom#var('clangx', 'default_cpp_options', '-std=c++17 -Wall -Wextra -Wshadow')
 
 "=====================================================
-"" ALE Linter
+"" Float Term 
 "=====================================================
 
 let g:floaterm_keymap_toggle = '<F12>'
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
+
+"=====================================================
+"" Syntax Highlighting vim-cpp-enhanced-highlight
+"=====================================================
+
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+
 
 "=====================================================
 "" Startify Header 
@@ -748,6 +753,8 @@ function! s:center(lines) abort
         \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
   return centered_lines
 endfunction
+
+let g:startify_change_to_dir = 0
 
 let g:startify_custom_header = s:center(s:header)
 let g:startify_custom_footer = s:center(s:footer)
