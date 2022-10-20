@@ -96,6 +96,7 @@ call vundle#begin()
    "-------------------=== Completion Framework  ===-------------------   
     if has('nvim')
         Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        Plugin 'bbchung/Clamp'
     else
         Plugin 'Shougo/deoplete.nvim'
         Plugin 'roxma/nvim-yarp'
@@ -163,7 +164,7 @@ set autoindent
 set nocompatible
 filetype off
 
-set background=light " for the light version
+set background=dark " for the light version
 
 hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
 
@@ -758,3 +759,9 @@ let g:startify_change_to_dir = 0
 
 let g:startify_custom_header = s:center(s:header)
 let g:startify_custom_footer = s:center(s:footer)
+
+"
+"Clamp
+"
+
+"let g:clamp_libclang_file = '/usr/lib/libclang.so'
