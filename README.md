@@ -107,6 +107,7 @@ https://riptutorial.com/git/example/18336/gitk-and-git-gui
 ```
 https://gist.github.com/simonista/8703722
 https://github.com/amix/vimrc
+https://superuser.com/questions/1483266/ale-not-working-despite-passing-correct-flags-to-the-enabled-linters
 ```
 
 Same Vim and NeoVim Settings:
