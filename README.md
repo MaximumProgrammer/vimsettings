@@ -122,6 +122,7 @@ https://github.com/mhinz/vim-galore
 
 Linter and Auto Code Completion: 
 ```
+https://github.com/dense-analysis/ale
 https://github.com/MaskRay/ccls
 https://github.com/bbchung/Clamp
 ```
