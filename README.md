@@ -118,3 +118,9 @@ Setting backup for files:
 ```
 https://github.com/mhinz/vim-galore
 ```
+
+Linter and Auto Code Completion: 
+```
+https://github.com/MaskRay/ccls
+https://github.com/bbchung/Clamp
+```
