@@ -125,4 +125,5 @@ Linter and Auto Code Completion:
 https://github.com/dense-analysis/ale
 https://github.com/MaskRay/ccls
 https://github.com/bbchung/Clamp
+https://github.com/neoclide/coc.nvim
 ```
