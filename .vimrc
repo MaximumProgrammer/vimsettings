@@ -30,6 +30,7 @@ call vundle#begin()
     Plugin 'rhysd/vim-clang-format'
     Plugin 'voldikss/vim-floaterm'             " float term window in vim
     Plugin 'octol/vim-cpp-enhanced-highlight'
+    Plugin 'georgejdanforth/vim-clip'          " for copying from selection
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
@@ -96,7 +97,7 @@ call vundle#begin()
    "-------------------=== Completion Framework  ===-------------------   
     if has('nvim')
         Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-        Plugin 'bbchung/Clamp'
+        "Plugin 'bbchung/Clamp'
     else
         Plugin 'Shougo/deoplete.nvim'
         Plugin 'roxma/nvim-yarp'
@@ -762,6 +763,43 @@ let g:startify_custom_footer = s:center(s:footer)
 
 "
 "Clamp
-"
 
-"let g:clamp_libclang_file = '/usr/lib/libclang.so'
+"if has('nvim')
+" let g:clamp_libclang_file = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
+" let g:clamp_heuristic_compile_args = 1
+"endif
+
+"=====================================================
+"" Compile and Run from the Command Line
+"=====================================================
+
+nnoremap <silent> <buffer> <F9> :call <SID>compile_run_cpp()<CR>
+
+function! s:compile_run_cpp() abort
+  let src_path = expand('%:p:~')
+  let src_noext = expand('%:p:~:r')
+  " The building flags
+  let _flag = '-Wall -Wextra -std=c++17 -O2'
+
+  if executable('clang++')
+    let prog = 'clang++'
+  elseif executable('g++')
+    let prog = 'g++'
+  else
+    echoerr 'No compiler found!'
+  endif
+  call s:create_term_buf('h', 5)
+  execute printf('term %s %s %s -o %s && %s', prog, _flag, src_path, src_noext, src_noext)
+  startinsert
+endfunction
+
+function s:create_term_buf(_type, size) abort
+  set splitbelow
+  set splitright
+  if a:_type ==# 'v'
+    vnew
+  else
+    new
+  endif
+  execute 'resize ' . a:size
+endfunction
