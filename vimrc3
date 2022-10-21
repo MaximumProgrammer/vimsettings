@@ -661,7 +661,7 @@ let g:ale_sign_column_always = 0
 let g:ale_sign_info = 'ⓘ'
 let g:ale_sign_offset = 1000000
 let g:ale_sign_info = '⚠'
-let g:ale_sign_style_error = '✖'
+let g:ale_sign_style_error = '❌'
 let g:ale_sign_style_warning = '⚠'
 let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = v:null
@@ -670,8 +670,8 @@ let g:ale_use_global_executables = v:null
 let g:ale_virtualtext_cursor = 0
 let g:ale_warn_about_trailing_blank_lines = 1
 let g:ale_warn_about_trailing_whitespace = 1
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '.'
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 set statusline=%{LinterStatus()}
 
 "=====================================================
