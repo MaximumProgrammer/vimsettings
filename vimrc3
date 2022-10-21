@@ -645,7 +645,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linter_aliases = {}
 let g:ale_linters_explicit = 0
 let g:ale_list_vertical = 0
-let g:ale_list_window_size = 10
+let g:ale_list_window_size = 5
 let g:ale_lsp_root = {}
 let g:ale_max_buffer_history_size = 20
 let g:ale_max_signs = -1
@@ -770,13 +770,15 @@ let g:startify_change_to_dir = 0
 let g:startify_custom_header = s:center(s:header)
 let g:startify_custom_footer = s:center(s:footer)
 
-"
-"Clamp
+"=====================================================
+"" Clamp for vim
+"=====================================================
 
-"if has('nvim')
-" let g:clamp_libclang_file = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
-" let g:clamp_heuristic_compile_args = 1
-"endif
+if has('nvim')
+ let g:clamp_libclang_file = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
+ let g:clamp_autostart = 1
+ let g:clamp_heuristic_compile_args = 1
+endif
 
 "=====================================================
 "" Compile and Run from the Command Line
