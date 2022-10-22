@@ -44,14 +44,12 @@ sudo apt-get build-dep vim
 
 ```
 git clone https://github.com/vim/vim.git
-
 ```
 
 Go in the according directory:
 
 ```
 cd vim
-
 ```
 
 For building vim use thesse settings for example, if you want to use vim with python:
@@ -66,6 +64,12 @@ cd vim/src
 ./configure --with-features=huge --enable-python3interp --enable-cscope --enable-gui=auto --enable-gtk2-check --with-features=huge
 ```
 
+On Centos and perhaps Ubuntu, you can use these settings:
+
+```
+./configure --with-features=huge             --enable-multibyte             --enable-rubyinterp=yes  --enable-pythoninterp=yes    --with-python-config-dir=/lib64/python2.7/config/     --enable-python3interp=yes             --with-python3-config-dir=/lib64/python3.6/config-3.6m-x86_64-linux-gnu/          --enable-luainterp=yes             --enable-gui=gtk2             --enable-cscope             --prefix=/usr/local
+```
+
 Now build and install it:
 
 ```
@@ -73,18 +77,7 @@ make -j8
 make install
 ```
 
-Also install following things for vim:
-
-```
-sudo pip3 install pynvim
-```
-
-
-On Centos and perhaps Ubuntu:
-
-```
-./configure --with-features=huge             --enable-multibyte             --enable-rubyinterp=yes  --enable-pythoninterp=yes    --with-python-config-dir=/lib64/python2.7/config/     --enable-python3interp=yes             --with-python3-config-dir=/lib64/python3.6/config-3.6m-x86_64-linux-gnu/          --enable-luainterp=yes             --enable-gui=gtk2             --enable-cscope             --prefix=/usr/local
-```
+## Also important to read:
 
 Important to read for vim users:
 
