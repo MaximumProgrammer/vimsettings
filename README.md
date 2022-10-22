@@ -105,6 +105,7 @@ Then invoke inside vim:
 ```
 :echo has('python3')
 ```
+,and check if there is python3 support.
 
 
 ## Also important to read:
