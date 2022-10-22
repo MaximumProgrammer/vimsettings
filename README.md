@@ -95,7 +95,11 @@ make -j8
 make install
 ```
 
-Test vim:
+Start vim
+```
+./vim
+```
+
 Then invoke inside vim:
 
 ```
