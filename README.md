@@ -15,7 +15,7 @@ You can also download neovim from here:
 https://mattermost.com/blog/how-to-install-and-set-up-neovim-for-code-editing/
 ```
 
-Vundle is described here, there also other plugin managers:
+Vundle is described here, there are also other plugin managers:
 
 ```
 https://github.com/VundleVim/Vundle.vim
