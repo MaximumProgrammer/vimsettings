@@ -62,13 +62,30 @@ For building vim use these settings for example, if you want to use vim with pyt
 ```
 git clone https://github.com/vim/vim.git
 cd vim/src
-./configure --with-features=huge --enable-python3interp --enable-cscope --enable-gui=auto --enable-gtk2-check --with-features=huge
+./configure
+--with-features=huge
+--enable-python3interp
+--enable-cscope
+--enable-gui=auto
+--enable-gtk2-check
+--with-features=huge
 ```
 
 On Centos and perhaps Ubuntu, you can use these settings:
 
 ```
-./configure --with-features=huge             --enable-multibyte             --enable-rubyinterp=yes  --enable-pythoninterp=yes    --with-python-config-dir=/lib64/python2.7/config/     --enable-python3interp=yes             --with-python3-config-dir=/lib64/python3.6/config-3.6m-x86_64-linux-gnu/          --enable-luainterp=yes             --enable-gui=gtk2             --enable-cscope             --prefix=/usr/local
+./configure 
+--with-features=huge
+--enable-multibyte
+--enable-rubyinterp=yes
+--enable-pythoninterp=yes
+--with-python-config-dir=/lib64/python2.7/config/
+--enable-python3interp=yes
+--with-python3-config-dir=/lib64/python3.6/config-3.6m-x86_64-linux-gnu/
+--enable-luainterp=yes
+--enable-gui=gtk2
+--enable-cscope
+--prefix=/usr/local
 ```
 
 Now build and install it:
