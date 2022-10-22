@@ -31,6 +31,7 @@ call vundle#begin()
     Plugin 'voldikss/vim-floaterm'             " float term window in vim
     Plugin 'octol/vim-cpp-enhanced-highlight'
     Plugin 'georgejdanforth/vim-clip'          " for copying from selection
+    "Plugin 'sheerun/vim-polyglot'
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
@@ -181,11 +182,11 @@ set guifont=Hack:h10:cANSI
 "
 if has('nvim')
         set undodir=~/.vim/undodir/nvim
+        set undofile
 else
-        set undodir=~/.vim/undodir
+    set undodir=~/.vim/undodir
+    set undofile
 endif
-
-set undofile
 
 set clipboard+=unnamed
 
@@ -867,9 +868,9 @@ let g:startify_custom_footer = s:center(s:footer)
 "=====================================================
 
 if has('nvim')
- let g:clamp_libclang_file = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
- let g:clamp_autostart = 1
- let g:clamp_heuristic_compile_args = 1
+ "let g:clamp_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-14.so.1'
+ "let g:clamp_autostart = 1
+ "let g:clamp_heuristic_compile_args = 1
 endif
 
 "=====================================================
