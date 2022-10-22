@@ -2,12 +2,12 @@
 
 These are mainly my vim settings which are used for programming on linux with C/C++ and python.
 
-You have to install vundle before u want to use vim with plugins. There are maybe some bugs in vim better to use neovim and vim:
+You have to install vundle before u want to use vim with plugins. There are maybe some bugs in vim better to use neovim:
 
 ```
 https://github.com/neovim/neovim
 ```
-, it is also possible to use these predefined settings for neovim.
+, it is also possible to use these predefined settings for neovim and vim.
 
 You can also download neovim from here:
 
@@ -23,7 +23,19 @@ https://github.com/VundleVim/Vundle.vim
 
 ## Building vim by your own
 
-If you want to build vim by your own, you can clone it:
+If you want to build vim by your own, you can clone it, vim must have python 3 support:
+
+Before install missing files for building it:
+
+```
+sudo apt-get install checkinstall
+sudo apt-get build-dep vim
+sudo apt-get install mercurial
+sudo apt-get install python-dev python3-dev ruby ruby-dev
+libx11-dev libxt-dev libgtk2.0-dev libncurses5 ncurses-dev
+```
+
+Now clone it from the standard repo:
 
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -36,23 +48,13 @@ https://medium.com/@SoftwareEngineeringNotes/building-vim-from-source-4177d9edd3
 https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
 ```
 
-Install missing files and clone git from github:
-
-```
-sudo apt-get build-dep vim
-```
-
-```
-git clone https://github.com/vim/vim.git
-```
-
 Go in the according directory:
 
 ```
 cd vim
 ```
 
-For building vim use thesse settings for example, if you want to use vim with python:
+For building vim use these settings for example, if you want to use vim with python3:
 
 ```
 (https://www.xorpd.net/blog/vim_python3_install.html)
@@ -76,6 +78,14 @@ Now build and install it:
 make -j8 
 make install
 ```
+
+Test vim:
+Then invoke inside vim:
+
+```
+:echo has('python3')
+```
+
 
 ## Also important to read:
 
