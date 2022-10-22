@@ -21,7 +21,7 @@ Vundle is described here, there also other plugin managers:
 https://github.com/VundleVim/Vundle.vim
 ```
 
-YIf you want to build vim by your own, you can clone it:
+If you want to build vim by your own, you can clone it:
 
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -38,6 +38,9 @@ Install missing files and clone git from github:
 
 ```
 sudo apt-get build-dep vim
+```
+
+```
 git clone https://github.com/vim/vim.git
 
 ```
@@ -53,6 +56,20 @@ For building vim use thesse settings for example, if you want to use vim with py
 
 ```
 (https://www.xorpd.net/blog/vim_python3_install.html)
+/configure \
+--enable-perlinterp \
+--enable-python3interp \
+--enable-rubyinterp \
+--enable-cscope \
+--enable-gui=auto \
+--enable-gtk2-check \
+--enable-gnome-check \
+--with-features=huge \
+--enable-multibyte \
+--with-x \
+--with-compiledby="xorpd" \
+--with-python3-config-dir=/usr/lib/python3.4/config-3.4m-x86_64-linux-gnu \
+--prefix=/opt/vim74
 ```
 
 ```
