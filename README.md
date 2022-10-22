@@ -21,7 +21,7 @@ Vundle is described here, there also other plugin managers:
 https://github.com/VundleVim/Vundle.vim
 ```
 
-You can clone it:
+YIf you want to build vim by your own, you can clone it:
 
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -31,11 +31,6 @@ Or build it from source:
 
 ```
 https://medium.com/@SoftwareEngineeringNotes/building-vim-from-source-4177d9edd3fe=
-```
-
-Or also read this guide:
-
-```
 https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
 ```
 
