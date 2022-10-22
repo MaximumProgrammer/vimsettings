@@ -21,7 +21,7 @@ Vundle is described here, there also other plugin managers:
 https://github.com/VundleVim/Vundle.vim
 ```
 
-h2. Building by your own
+## Building by your own
 
 If you want to build vim by your own, you can clone it:
 
