@@ -7,7 +7,7 @@ You have to install vundle before u want to use vim with plugins. There are mayb
 ```
 https://github.com/neovim/neovim
 ```
-, it is also possible to use these settings for neovim.
+, it is also possible to use these predefined settings for neovim.
 
 Or download it:
 
@@ -15,7 +15,7 @@ Or download it:
 https://mattermost.com/blog/how-to-install-and-set-up-neovim-for-code-editing/
 ```
 
-Download vundle from github for using plugins:
+Download vundle from github for using plugins for vim and nvim:
 
 ```
 https://github.com/VundleVim/Vundle.vim
