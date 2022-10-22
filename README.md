@@ -9,7 +9,7 @@ https://github.com/neovim/neovim
 ```
 , it is also possible to use these predefined settings for neovim.
 
-Or download it:
+You can also download neovim from here:
 
 ```
 https://mattermost.com/blog/how-to-install-and-set-up-neovim-for-code-editing/
