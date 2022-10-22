@@ -15,19 +15,19 @@ Or download it:
 https://mattermost.com/blog/how-to-install-and-set-up-neovim-for-code-editing/
 ```
 
-Download vundle from github for using plugins for vim and nvim:
+Vundle is described here, there also other plugin managers:
 
 ```
 https://github.com/VundleVim/Vundle.vim
 ```
 
-Now clone it:
+You can clone it:
 
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
-Now building vim by your own:
+Or build it from source:
 
 ```
 https://medium.com/@SoftwareEngineeringNotes/building-vim-from-source-4177d9edd3fe=
