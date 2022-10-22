@@ -1,6 +1,6 @@
 # Vimsettings
 
-These are mainly my vim settings which are used for programming on linux with c++ and linux.
+These are mainly my vim settings which are used for programming on linux with C/C++ and python.
 
 You have to install vundle before u want to use vim with plugins. There are maybe some bugs in vim better to use neovim:
 
