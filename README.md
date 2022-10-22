@@ -23,7 +23,7 @@ https://github.com/VundleVim/Vundle.vim
 
 ## Building vim by your own
 
-If you want to build vim by your own, you can clone it from a repo, important vim must have python 3 support:
+If you want to build vim by your own, you can clone it from any repo, important vim must have python 3 support for using all plugins:
 
 Before install missing files for building it:
 
@@ -31,8 +31,7 @@ Before install missing files for building it:
 sudo apt-get install checkinstall
 sudo apt-get build-dep vim
 sudo apt-get install mercurial
-sudo apt-get install python-dev python3-dev ruby ruby-dev
-libx11-dev libxt-dev libgtk2.0-dev libncurses5 ncurses-dev
+sudo apt-get install python-dev python3-dev ruby ruby-dev libx11-dev libxt-dev libgtk2.0-dev libncurses5 ncurses-dev
 ```
 
 Now clone it from the standard repo:
