@@ -46,6 +46,7 @@ call vundle#begin()
     Plugin 'arcticicestudio/nord-vim'           " Nord vim 
     Plugin 'ericcurtin/CurtineIncSw.vim'
     Plugin 'frazrepo/vim-rainbow'
+    Plugin 'hari-rangarajan/CCTree' 
 
     "-------------------=== HTML support ===-------------------
     Plugin 'jtratner/vim-flavored-markdown'
@@ -181,8 +182,8 @@ set guifont=Hack:h10:cANSI
 " settting undo file
 "
 if has('nvim')
-        set undodir=~/.vim/undodir/nvim
-        set undofile
+    set undodir=~/.vim/undodir/nvim
+    set undofile
 else
     set undodir=~/.vim/undodir
     set undofile
@@ -191,6 +192,13 @@ endif
 set clipboard+=unnamed
 
 set termguicolors
+
+"=====================================================
+"" ALE Linter
+"=====================================================
+" This belongs to the ALE Linter but should be on the beginning
+
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 "=====================================================
 "" Powerline Settings
@@ -521,9 +529,9 @@ let g:clang_complete_patters = 1
 set completeopt=menu,longest
 
 " CentOS
-" let g:clang_library_path = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
+let g:clang_library_path = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
 " Ubuntu
-let g:clang_library_path = '/usr/lib/x86_64-linux-gnu/libclang-14.so.1'
+"let g:clang_library_path = '/usr/lib/x86_64-linux-gnu/libclang-14.so.1'
 let g:clang_auto_user_options='path, .clang_complete'
 let g:clang_snippets_engine = 'clang_complete'
 
