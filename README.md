@@ -156,4 +156,5 @@ CScope:
 
 ```
 https://medium.com/@mmeinhar85/how-to-integrate-cscope-into-vim-in-linux-85274102474
+https://acksyn.org/posts/2013/09/navigating-source-code-with-vim/
 ```
