@@ -151,10 +151,13 @@ https://github.com/MaskRay/ccls
 https://github.com/bbchung/Clamp
 https://github.com/neoclide/coc.nvim
 ```
-
-CScope:
+Searrching for references with CScope or CTAG
 
 ```
+CTag:
+https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
+
+CScope:
 https://medium.com/@mmeinhar85/how-to-integrate-cscope-into-vim-in-linux-85274102474
 https://acksyn.org/posts/2013/09/navigating-source-code-with-vim/
 https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
