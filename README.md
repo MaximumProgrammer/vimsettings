@@ -152,8 +152,8 @@ https://github.com/bbchung/Clamp
 https://github.com/neoclide/coc.nvim
 ```
 
-```
 CScope:
-```
 
+```
 https://medium.com/@mmeinhar85/how-to-integrate-cscope-into-vim-in-linux-85274102474
+```
