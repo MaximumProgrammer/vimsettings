@@ -151,7 +151,7 @@ https://github.com/MaskRay/ccls
 https://github.com/bbchung/Clamp
 https://github.com/neoclide/coc.nvim
 ```
-Searrching for references with CScope or CTAG
+Searching for references with CScope or CTAG in your code basis:
 
 ```
 CTag:
