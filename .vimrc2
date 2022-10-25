@@ -31,7 +31,7 @@ call vundle#begin()
     Plugin 'voldikss/vim-floaterm'             " float term window in vim
     Plugin 'octol/vim-cpp-enhanced-highlight'
     Plugin 'georgejdanforth/vim-clip'          " for copying from selection
-    "Plugin 'sheerun/vim-polyglot'
+    Plugin 'ryanoasis/vim-devicons'            " for having icons
 
     "-------------------=== Snippets support ===--------------------
     Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
@@ -124,7 +124,6 @@ filetype plugin indent on
 
 syntax enable                               " syntax highlight
 
-set t_Co=256                                " set 256 colors
 "colorscheme vem-dark                        " set color scheme
 colorscheme nord                        " set color scheme
 
@@ -207,9 +206,12 @@ set completeopt=menu,menuone,preview,noselect,noinsert
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
-set t_Co=256
+
+if !has('gui_running')
+  set t_Co=256
+endif
+
 set fillchars+=stl:\ ,stlnc:\
-set t_Co=256
 set termencoding=utf-8
 
 if has("gui_running")
@@ -219,6 +221,9 @@ if has("gui_running")
         colorscheme nord            " set color scheme
     endif
 endif
+
+set noshowmode
+set laststatus=2
 
 "=====================================================
 "" Auto Formatting Settings
@@ -407,6 +412,7 @@ set showtabline=1
 
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
+
 
 "=====================================================
 "" SnipMate settings
