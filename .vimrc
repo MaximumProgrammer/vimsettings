@@ -3,78 +3,71 @@
 " https://alex.dzyoba.com/blog/vim-revamp/
 " https://alpha2phi.medium.com/neovim-startup-screen-edd933ec8261
 " https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/
+" https://hannadrehman.com/top-neovim-plugins-for-developers-in-2022
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+     "-------------------=== Plugin Manager ===-------------    
     Plugin 'VundleVim/Vundle.vim'               " let Vundle manage Vundle, required
 
     "-------------------=== Code/Project navigation ===-------------
-    Plugin 'scrooloose/nerdtree'                " Project and file navigation
-    Plugin 'majutsushi/tagbar'                  " Class/module browser
-    Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
-    Plugin 'jistr/vim-nerdtree-tabs'
-   
+    Plugin 'scrooloose/nerdtree'                      " Project and file navigation
+    Plugin 'jistr/vim-nerdtree-tabs'                  " Improving NerdTree 
+    Plugin 'majutsushi/tagbar'                        " Class/module browser
+    Plugin 'kien/ctrlp.vim'                           " Fast transitions on project files
+    Plugin 'voldikss/vim-floaterm'                    " float term window in vim
+    Plugin 'ervandew/supertab'                        " Using tabs in your project
+ 
     "-------------------=== Other ===-------------------------------
-    Plugin 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
-    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-    Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
-    Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
-    Plugin 'rosenfeld/conque-term'              " Consoles as buffers
-    Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
-    Plugin 'flazz/vim-colorschemes'             " Colorschemes
-    Plugin 'ervandew/supertab'
-    Plugin 'drewtempelmeyer/palenight.vim'
-    Plugin 'bogado/file-line'
-    Plugin 'irrationalistic/vim-tasks'
-    Plugin 'rhysd/vim-clang-format'
-    Plugin 'voldikss/vim-floaterm'             " float term window in vim
-    Plugin 'octol/vim-cpp-enhanced-highlight'
-    Plugin 'georgejdanforth/vim-clip'          " for copying from selection
+    Plugin 'vim-airline/vim-airline'                  " Lean & mean status/tabline for vim
+    Plugin 'vim-airline/vim-airline-themes'           " Themes for airline
+    Plugin 'rhysd/vim-clang-format'                   " Formatting your code just online
+    Plugin 'octol/vim-cpp-enhanced-highlight'         " Better synatax highlighting
+    Plugin 'Lokaltog/powerline'                       " Powerline fonts plugin
+    Plugin 'fisadev/FixedTaskList.vim'                " Pending tasks list
+    Plugin 'rosenfeld/conque-term'                    " Consoles as buffers
+    Plugin 'tpope/vim-surround'                       " Parentheses, brackets, quotes, XML tags, and more
+    Plugin 'bogado/file-line'                         " Open a file with the according name   
+    Plugin 'irrationalistic/vim-tasks'                " Plugin for handling a tasklist
+    Plugin 'georgejdanforth/vim-clip'                 " Plugin for copying from selection like html browser
+    Plugin 'ryanoasis/vim-devicons'                   " Plugin for having icons
 
     "-------------------=== Snippets support ===--------------------
-    Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
-    Plugin 'tomtom/tlib_vim'                    " dependencies #2
-    Plugin 'honza/vim-snippets'                 " snippets repo
+    Plugin 'MarcWeber/vim-addon-mw-utils'             " Various utils such as caching interpreted contents of files or advanced glob like things
+    Plugin 'tomtom/tlib_vim'                          " Some utility functions
+    Plugin 'honza/vim-snippets'                       " Snipped files
 
     "-------------------=== Languages support ===-------------------
-    Plugin 'tpope/vim-commentary'               " Comment stuff out
-    Plugin 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
-    "Plugin 'Rykka/riv.vim'                      " ReStructuredText plugin
-    "Plugin 'Valloric/YouCompleteMe'            " Autocomplete plugin
-    Plugin 'arcticicestudio/nord-vim'           " Nord vim 
-    Plugin 'ericcurtin/CurtineIncSw.vim'
-    Plugin 'frazrepo/vim-rainbow'
+    Plugin 'tpope/vim-commentary'                     " Comment stuff out
+    Plugin 'mitsuhiko/vim-sparkup'                    " Sparkup(XML/jinja/htlm-django/etc.) support
+    Plugin 'maksimr/vim-jsbeautify'                   " Js Beautifier
 
-    "-------------------=== HTML support ===-------------------
-    Plugin 'jtratner/vim-flavored-markdown'
-    Plugin 'suan/vim-instant-markdown'
-    Plugin 'nelstrom/vim-markdown-preview'
+    "-------------------=== Markdown support ===-------------------
+    Plugin 'jtratner/vim-flavored-markdown'           " Support for markdown
+    Plugin 'suan/vim-instant-markdown'                " Having insttant markdow support    
+    Plugin 'nelstrom/vim-markdown-preview'            " Plugin for having markdow support
 
     "-------------------=== Python  ===-----------------------------
-    "Plugin 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
-    Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
-    Plugin 'nvie/vim-flake8'
-    Plugin 'vim-scripts/Pydiction'
-    Plugin 'vim-scripts/indentpython.vim'
-    Plugin 'psf/black'
-    Plugin 'davidhalter/jedi-vim'
-    Plugin 'deoplete-plugins/deoplete-jedi'
+    "Plugin 'klen/python-mode'                        " Python mode (docs, refactor, lints...)
+    Plugin 'scrooloose/syntastic'                     " Syntax checking plugin for Vim
+    Plugin 'nvie/vim-flake8'                          " A static syntax and style checker for Python source code
+    Plugin 'vim-scripts/Pydiction'                    " Pydiction allows you to Tab-complete Python code in Vim such as keywords
+    Plugin 'vim-scripts/indentpython.vim'             " Fixes a bug
+    Plugin 'psf/black'                                " Python code formatter 
+    Plugin 'davidhalter/jedi-vim'                     " Awesome Python autocompletion with VIM
 
-    "-------------------=== Switching C++ Headers ===-------------------
-    Plugin 'derekwyatt/vim-fswitch'
-    Plugin 'derekwyatt/vim-protodef'
+    "-------------------=== C/C++ ===-------------------  
+    Plugin 'rip-rip/clang_complete'                   " Having clang completion in your code     
+    Plugin 'ericcurtin/CurtineIncSw.vim'              " Togggling between c and h files
+    Plugin 'w0rp/ale'                                 " Linter for clang errros
+    Plugin 'derekwyatt/vim-fswitch'                   " For switching between c and header fils
+    Plugin 'derekwyatt/vim-protodef'                  " This Vim plugin will pull C++ ptototypes into the implementation file 
 
     "-------------------=== Searchin for Files ===-------------------
     Plugin 'junegunn/fzf.vim'
     Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-    "-------------------=== C++ Linter ===-------------------
-    Plugin 'w0rp/ale'
-
-   "-------------------=== C++ Code Completion ===-------------------  
-    Plugin 'rip-rip/clang_complete'
-
+    
     "-------------------=== Code Formatting ===-------------------
     Plugin 'tmhedberg/SimpylFold'
     Plugin 'google/vim-maktaba'
@@ -86,14 +79,15 @@ call vundle#begin()
     Plugin 'jnurmine/Zenburn'
     Plugin 'rakr/vim-one'
     Plugin 'itchyny/lightline.vim'
-
-    
+    Plugin 'arcticicestudio/nord-vim'             
     Plugin 'pacha/vem-dark'
-    
+    Plugin 'frazrepo/vim-rainbow'
+    Plugin 'flazz/vim-colorschemes'                  
+ 
     "-------------------=== Plugin for Git Integration ===-------------------
     Plugin 'airblade/vim-gitgutter'
     Plugin 'tpope/vim-fugitive'
-  
+
    "-------------------=== Completion Framework  ===-------------------   
     if has('nvim')
         Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -103,12 +97,18 @@ call vundle#begin()
         Plugin 'roxma/nvim-yarp'
         Plugin 'roxma/vim-hug-neovim-rpc'
     endif
+    Plugin 'deoplete-plugins/deoplete-jedi'           " Using deoplete with vim
+
 
    "-------------------=== Vim Startup Screen  ===-------------------    
-    Plugin 'mhinz/vim-startify'
+    Plugin 'mhinz/vim-startify'                        " Start Up Screen
    "Plugin 'goolord/alpha-nvim'
 
 call vundle#end()
+
+" Add plugins here which you want to add
+
+"""""""""""" START General Settings """"""""""""""""
 
 "=====================================================
 "" General Settings
@@ -118,7 +118,6 @@ filetype plugin indent on
 
 syntax enable                               " syntax highlight
 
-set t_Co=256                                " set 256 colors
 "colorscheme vem-dark                        " set color scheme
 colorscheme nord                        " set color scheme
 
@@ -173,12 +172,26 @@ hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
 
 set guifont=Hack:h10:cANSI
 
-set undodir=~/.vim/undodir                   " settting undo file
-set undofile
+" settting undo file
+"
+if has('nvim')
+    set undodir=~/.vim/undodir/nvim
+    set undofile
+else
+    set undodir=~/.vim/undodir
+    set undofile
+endif
 
 set clipboard+=unnamed
 
 set termguicolors
+
+"=====================================================
+"" ALE Linter
+"=====================================================
+" This belongs to the ALE Linter but should be on the beginning
+
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 "=====================================================
 "" Powerline Settings
@@ -187,9 +200,12 @@ set termguicolors
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
-set t_Co=256
+
+if !has('gui_running')
+  set t_Co=256
+endif
+
 set fillchars+=stl:\ ,stlnc:\
-set t_Co=256
 set termencoding=utf-8
 
 if has("gui_running")
@@ -199,6 +215,9 @@ if has("gui_running")
         colorscheme nord            " set color scheme
     endif
 endif
+
+set noshowmode
+set laststatus=2
 
 "=====================================================
 "" Auto Formatting Settings
@@ -259,6 +278,80 @@ let g:TasksArchiveSeparator = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿�
 "" AirLine settings
 "=====================================================
 
+map <F5> :call CurtineIncSw()<CR>
+
+hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
+
+au filetype vimwiki silent! iunmap <buffer> <Tab>
+
+let maplocalleader="\<space>"
+let g:TasksMarkerBase = '☐'
+let g:TasksMarkerInProgress = '»'
+let g:TasksMarkerDone = '✔'
+let g:TasksMarkerCancelled = '✘'
+let g:TasksDateFormat = '%Y-%m-%d %H:%M'
+let g:TasksAttributeMarker = '@'
+let g:TasksArchiveSeparator = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿'
+
+" set color schemes"
+"let background=black " for the dark version
+"set background=light " for the light version
+
+hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
+
+set guifont=Hack:h10:cANSI
+
+" Airline
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" adding space
+let g:airline#extensions#tabline#left_sep = "\ue0b0"
+let g:airline#extensions#tabline#left_alt_sep = "\ue0b1"
+let g:airline#extensions#tabline#right_sep = "\ue0b1"
+let g:airline#extensions#tabline#right_alt_sep = "\ue0b0"
+
+
+" airline symbols
+"https://vi.stackexchange.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+"https://yyiki.org/wiki/Vim/Airline/
+" Switch to your current theme
+let g:airline_theme = 'wombat'
+let g:airline_disable_statusline = 0
+let g:airline_powerline_fonts=1
+let g:bufferline_echo = 0 
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#enabled = 1
+
+set fillchars+=stl:\ ,stlnc:\
+
+" Always show tabs
+set showtabline=1
+
+" We don't need to see things like -- INSERT -- anymore
+set noshowmode
+
+"=====================================================
+"" AirLine settings
+"=====================================================
+
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
@@ -313,6 +406,7 @@ set showtabline=1
 
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
+
 
 "=====================================================
 "" SnipMate settings
@@ -436,7 +530,6 @@ set completeopt=menu,longest
 
 " CentOS
 let g:clang_library_path = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
-
 " Ubuntu
 "let g:clang_library_path = '/usr/lib/x86_64-linux-gnu/libclang-14.so.1'
 let g:clang_auto_user_options='path, .clang_complete'
@@ -447,6 +540,36 @@ let g:clang_snippets_engine = 'clang_complete'
 "=====================================================
 
 let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
+call deoplete#custom#option("num_processes", 4)
+call deoplete#custom#var('auto_complete_delay', 250)
+call deoplete#custom#source('_', 'max_menu_width', 80)
+
+set completeopt=menu,menuone
+set completeopt+=noselect
+
+"=====================================================
+"" Deoplate Clang X
+"=====================================================
+
+call deoplete#custom#var('clangx', 'clang_binary', '/opt/rh/llvm-toolset-11.0/root/usr/bin/clang')
+call deoplete#custom#var('clangx', 'default_c_options', '-std=c++17 -Wall -Wextra -Wshadow')
+call deoplete#custom#var('clangx', 'default_cpp_options', '-std=c++17 -Wall -Wextra -Wshadow')
+
+"=====================================================
+"" Deoplate Python
+"=====================================================
+
+"Plz install pip3 install --user pynvim"
+
+"sudo pip3 install pynvim"
+"pip3 install --user jedi
+let g:deoplete#enable_at_startup = 1
+
+if has('pythonx')
+    set pyxversion=3
+endif
 
 "=====================================================
 "" Python PEP 8 stuff
@@ -499,15 +622,6 @@ nnoremap <space> za
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 :hi Normal ctermfg=white ctermbg=black
-
-"Deoplate Code Completion"
-"Plz install pip3 install --user pynvim"
-"sudo pip3 install pynvim"
-let g:deoplete#enable_at_startup = 1
-
-if has('pythonx')
-    set pyxversion=3
-endif
 
 "Rainbow colors"
 
@@ -636,7 +750,7 @@ let g:ale_fixers = {}
 let g:ale_history_enabled = 1
 let g:ale_history_log_output = 1
 let g:ale_keep_list_window_open = 0
-let g:ale_lint_delay = 350
+let g:ale_lint_delay = 150
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_filetype_changed = 1
 let g:ale_lint_on_insert_leave = 0
@@ -661,33 +775,20 @@ let g:ale_set_signs = 1
 let g:ale_sign_column_always = 0
 let g:ale_sign_info = 'ⓘ'
 let g:ale_sign_offset = 1000000
-let g:ale_sign_info = '⚠'
-let g:ale_sign_style_error = '❌'
+let g:ale_sign_style_error = '✖'
 let g:ale_sign_style_warning = '⚠'
-let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = v:null
 let g:ale_type_map = {}
 let g:ale_use_global_executables = v:null
 let g:ale_virtualtext_cursor = 0
 let g:ale_warn_about_trailing_blank_lines = 1
 let g:ale_warn_about_trailing_whitespace = 1
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 set statusline=%{LinterStatus()}
-
-call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
-call deoplete#custom#var('auto_complete_delay', 500)
-
-"=====================================================
-"" Deoplate Clang X
-"=====================================================
-
-call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
-call deoplete#custom#var('clangx', 'default_c_options', '-std=c++17 -Wall -Wextra -Wshadow')
-call deoplete#custom#var('clangx', 'default_cpp_options', '-std=c++17 -Wall -Wextra -Wshadow')
 
 "=====================================================
 "" Float Term 
@@ -775,9 +876,9 @@ let g:startify_custom_footer = s:center(s:footer)
 "=====================================================
 
 if has('nvim')
- let g:clamp_libclang_file = '/opt/rh/llvm-toolset-11.0/root/usr/lib64/libclang.so.11'
- let g:clamp_autostart = 1
- let g:clamp_heuristic_compile_args = 1
+ "let g:clamp_libclang_file = '/usr/lib/x86_64-linux-gnu/libclang-14.so.1'
+ "let g:clamp_autostart = 1
+ "let g:clamp_heuristic_compile_args = 1
 endif
 
 "=====================================================
