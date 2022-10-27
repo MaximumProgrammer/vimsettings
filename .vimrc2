@@ -3,80 +3,70 @@
 " https://alex.dzyoba.com/blog/vim-revamp/
 " https://alpha2phi.medium.com/neovim-startup-screen-edd933ec8261
 " https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/
+" https://hannadrehman.com/top-neovim-plugins-for-developers-in-2022
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+     "-------------------=== Plugin Manager ===-------------    
     Plugin 'VundleVim/Vundle.vim'               " let Vundle manage Vundle, required
 
     "-------------------=== Code/Project navigation ===-------------
-    Plugin 'scrooloose/nerdtree'                " Project and file navigation
-    Plugin 'majutsushi/tagbar'                  " Class/module browser
-    Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
-    Plugin 'jistr/vim-nerdtree-tabs'
-   
+    Plugin 'scrooloose/nerdtree'                      " Project and file navigation
+    Plugin 'jistr/vim-nerdtree-tabs'                  " Improving NerdTree 
+    Plugin 'majutsushi/tagbar'                        " Class/module browser
+    Plugin 'kien/ctrlp.vim'                           " Fast transitions on project files
+    Plugin 'voldikss/vim-floaterm'                    " float term window in vim
+    Plugin 'ervandew/supertab'                        " Using tabs in your project
+ 
     "-------------------=== Other ===-------------------------------
-    Plugin 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
-    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-    Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
-    Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
-    Plugin 'rosenfeld/conque-term'              " Consoles as buffers
-    Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
-    Plugin 'flazz/vim-colorschemes'             " Colorschemes
-    Plugin 'ervandew/supertab'
-    Plugin 'drewtempelmeyer/palenight.vim'
-    Plugin 'bogado/file-line'
-    Plugin 'irrationalistic/vim-tasks'
-    Plugin 'rhysd/vim-clang-format'
-    Plugin 'voldikss/vim-floaterm'             " float term window in vim
-    Plugin 'octol/vim-cpp-enhanced-highlight'
-    Plugin 'georgejdanforth/vim-clip'          " for copying from selection
-    Plugin 'ryanoasis/vim-devicons'            " for having icons
+    Plugin 'vim-airline/vim-airline'                  " Lean & mean status/tabline for vim
+    Plugin 'vim-airline/vim-airline-themes'           " Themes for airline
+    Plugin 'rhysd/vim-clang-format'                   " Formatting your code just online
+    Plugin 'octol/vim-cpp-enhanced-highlight'         " Better synatax highlighting
+    Plugin 'Lokaltog/powerline'                       " Powerline fonts plugin
+    Plugin 'fisadev/FixedTaskList.vim'                " Pending tasks list
+    Plugin 'rosenfeld/conque-term'                    " Consoles as buffers
+    Plugin 'tpope/vim-surround'                       " Parentheses, brackets, quotes, XML tags, and more
+    Plugin 'bogado/file-line'                         " Open a file with the according name   
+    Plugin 'irrationalistic/vim-tasks'                " Plugin for handling a tasklist
+    Plugin 'georgejdanforth/vim-clip'                 " Plugin for copying from selection like html browser
+    Plugin 'ryanoasis/vim-devicons'                   " Plugin for having icons
 
     "-------------------=== Snippets support ===--------------------
-    Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
-    Plugin 'tomtom/tlib_vim'                    " dependencies #2
-    Plugin 'honza/vim-snippets'                 " snippets repo
+    Plugin 'MarcWeber/vim-addon-mw-utils'             " Various utils such as caching interpreted contents of files or advanced glob like things
+    Plugin 'tomtom/tlib_vim'                          " Some utility functions
+    Plugin 'honza/vim-snippets'                       " Snipped files
 
     "-------------------=== Languages support ===-------------------
-    Plugin 'tpope/vim-commentary'               " Comment stuff out
-    Plugin 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
-    "Plugin 'Rykka/riv.vim'                      " ReStructuredText plugin
-    "Plugin 'Valloric/YouCompleteMe'            " Autocomplete plugin
-    Plugin 'arcticicestudio/nord-vim'           " Nord vim 
-    Plugin 'ericcurtin/CurtineIncSw.vim'
-    Plugin 'frazrepo/vim-rainbow'
-    Plugin 'hari-rangarajan/CCTree' 
+    Plugin 'tpope/vim-commentary'                     " Comment stuff out
+    Plugin 'mitsuhiko/vim-sparkup'                    " Sparkup(XML/jinja/htlm-django/etc.) support
 
-    "-------------------=== HTML support ===-------------------
-    Plugin 'jtratner/vim-flavored-markdown'
-    Plugin 'suan/vim-instant-markdown'
-    Plugin 'nelstrom/vim-markdown-preview'
+    "-------------------=== Markdown support ===-------------------
+    Plugin 'jtratner/vim-flavored-markdown'           " Support for markdown
+    Plugin 'suan/vim-instant-markdown'                " Having insttant markdow support    
+    Plugin 'nelstrom/vim-markdown-preview'            " Plugin for having markdow support
 
     "-------------------=== Python  ===-----------------------------
-    "Plugin 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
-    Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
-    Plugin 'nvie/vim-flake8'
-    Plugin 'vim-scripts/Pydiction'
-    Plugin 'vim-scripts/indentpython.vim'
-    Plugin 'psf/black'
-    Plugin 'davidhalter/jedi-vim'
-    Plugin 'deoplete-plugins/deoplete-jedi'
+    "Plugin 'klen/python-mode'                        " Python mode (docs, refactor, lints...)
+    Plugin 'scrooloose/syntastic'                     " Syntax checking plugin for Vim
+    Plugin 'nvie/vim-flake8'                          " A static syntax and style checker for Python source code
+    Plugin 'vim-scripts/Pydiction'                    " Pydiction allows you to Tab-complete Python code in Vim such as keywords
+    Plugin 'vim-scripts/indentpython.vim'             " Fixes a bug
+    Plugin 'psf/black'                                " Python code formatter 
+    Plugin 'davidhalter/jedi-vim'                     " Awesome Python autocompletion with VIM
 
-    "-------------------=== Switching C++ Headers ===-------------------
-    Plugin 'derekwyatt/vim-fswitch'
-    Plugin 'derekwyatt/vim-protodef'
+    "-------------------=== C/C++ ===-------------------  
+    Plugin 'rip-rip/clang_complete'                   " Having clang completion in your code     
+    Plugin 'ericcurtin/CurtineIncSw.vim'              " Togggling between c and h files
+    Plugin 'w0rp/ale'                                 " Linter for clang errros
+    Plugin 'derekwyatt/vim-fswitch'                   " For switching between c and header fils
+    Plugin 'derekwyatt/vim-protodef'                  " This Vim plugin will pull C++ ptototypes into the implementation file 
 
     "-------------------=== Searchin for Files ===-------------------
     Plugin 'junegunn/fzf.vim'
     Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-    "-------------------=== C++ Linter ===-------------------
-    Plugin 'w0rp/ale'
-
-   "-------------------=== C++ Code Completion ===-------------------  
-    Plugin 'rip-rip/clang_complete'
-
+    
     "-------------------=== Code Formatting ===-------------------
     Plugin 'tmhedberg/SimpylFold'
     Plugin 'google/vim-maktaba'
@@ -88,10 +78,11 @@ call vundle#begin()
     Plugin 'jnurmine/Zenburn'
     Plugin 'rakr/vim-one'
     Plugin 'itchyny/lightline.vim'
-
-    
+    Plugin 'arcticicestudio/nord-vim'             
     Plugin 'pacha/vem-dark'
-    
+    Plugin 'frazrepo/vim-rainbow'
+    Plugin 'flazz/vim-colorschemes'                  
+ 
     "-------------------=== Plugin for Git Integration ===-------------------
     Plugin 'airblade/vim-gitgutter'
     Plugin 'tpope/vim-fugitive'
@@ -105,9 +96,11 @@ call vundle#begin()
         Plugin 'roxma/nvim-yarp'
         Plugin 'roxma/vim-hug-neovim-rpc'
     endif
+    Plugin 'deoplete-plugins/deoplete-jedi'           " Using deoplete with vim
+
 
    "-------------------=== Vim Startup Screen  ===-------------------    
-    Plugin 'mhinz/vim-startify'
+    Plugin 'mhinz/vim-startify'                        " Start Up Screen
    "Plugin 'goolord/alpha-nvim'
 
 call vundle#end()
@@ -559,7 +552,7 @@ set completeopt+=noselect
 "" Deoplate Clang X
 "=====================================================
 
-call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+call deoplete#custom#var('clangx', 'clang_binary', '/opt/rh/llvm-toolset-11.0/root/usr/bin/clang')
 call deoplete#custom#var('clangx', 'default_c_options', '-std=c++17 -Wall -Wextra -Wshadow')
 call deoplete#custom#var('clangx', 'default_cpp_options', '-std=c++17 -Wall -Wextra -Wshadow')
 
