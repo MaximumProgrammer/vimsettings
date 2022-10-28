@@ -120,6 +120,11 @@ https://www.makeuseof.com/best-vim-plugins/
 https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f
 ```
 
+Vim Basis Guidelines for using:
+```
+https://www.keycdn.com/blog/vim-commands
+```
+
 Important to read for neovim users:
 
 ```
