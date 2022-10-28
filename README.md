@@ -120,6 +120,12 @@ https://www.makeuseof.com/best-vim-plugins/
 https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f
 ```
 
+Important to read for neovim users:
+
+```
+https://hannadrehman.com/top-neovim-plugins-for-developers-in-2022
+```
+
 Important to read for git users:
 ```
 https://www.gitkraken.com/
