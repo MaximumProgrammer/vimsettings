@@ -41,6 +41,7 @@ call vundle#begin()
     "-------------------=== Languages support ===-------------------
     Plugin 'tpope/vim-commentary'                     " Comment stuff out
     Plugin 'mitsuhiko/vim-sparkup'                    " Sparkup(XML/jinja/htlm-django/etc.) support
+    Plugin 'maksimr/vim-jsbeautify'                   " Js Beautifier
 
     "-------------------=== Markdown support ===-------------------
     Plugin 'jtratner/vim-flavored-markdown'           " Support for markdown
@@ -62,11 +63,12 @@ call vundle#begin()
     Plugin 'w0rp/ale'                                 " Linter for clang errros
     Plugin 'derekwyatt/vim-fswitch'                   " For switching between c and header fils
     Plugin 'derekwyatt/vim-protodef'                  " This Vim plugin will pull C++ ptototypes into the implementation file 
+    "Plugin 'nvim-treesitter/nvim-treesitter'          " Syntax highlighting
 
     "-------------------=== Searchin for Files ===-------------------
     Plugin 'junegunn/fzf.vim'
     Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    
+
     "-------------------=== Code Formatting ===-------------------
     Plugin 'tmhedberg/SimpylFold'
     Plugin 'google/vim-maktaba'
@@ -86,7 +88,7 @@ call vundle#begin()
     "-------------------=== Plugin for Git Integration ===-------------------
     Plugin 'airblade/vim-gitgutter'
     Plugin 'tpope/vim-fugitive'
-  
+
    "-------------------=== Completion Framework  ===-------------------   
     if has('nvim')
         Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
